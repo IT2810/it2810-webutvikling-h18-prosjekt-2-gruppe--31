@@ -1,21 +1,62 @@
+import ReactDOM, { render } from 'react-dom';
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+class ImageSlider extends React.Component {
+  
+  constructor(){
+    super();
+    this._handleClick = this._handleClick.bind(this);
+    this.state = {firstImg : ''};
+  }
+  _handleClick(e){
+    this.setState({firstImg : e.target.src});
+  }
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+    var mainImg = this.state.firstImg ? this.state.firstImg : this.props.images[0];
+    return(
+      <div>
+        <div>
+          <img className ="focusMainImg" src={mainImg}/>
+        </div>
+        <div id="div1">
+          {this.props.images.map((image, key) => {
+            return(
+              <img
+                key={key}
+                className ={mainImg==image? "selectedThumbnail" :"allThumbnail"}
+                src={image}
+                onClick={this._handleClick} />
+            )})}
+        </div>
+        
       </div>
-    );
+    )
   }
 }
 
-export default App;
+class ImageSlideShow extends React.Component {
+  constructor(props, context){
+      super(props, context);
+      this.state = {};
+      this.state.images= [];
+      this.state.images = ['https://www.shareicon.net/data/512x512/2016/11/30/859203_nature_512x512.png',
+      'https://www.shareicon.net/data/512x512/2016/11/16/854281_nature_512x512.png',
+      'https://www.shareicon.net/data/512x512/2016/11/16/854313_flower_512x512.png',
+    'https://www.shareicon.net/data/512x512/2016/11/16/854312_nature_512x512.png'];
+      }
+  
+render(){
+   
+  return (
+            <div>
+                <ImageSlider images = {this.state.images}/>
+             </div>
+  )
+}
+}
+
+/*ReactDOM.render(<ImageSlideShow />, document.getElementById('container'));*/
+
+export default (ImageSlider, ImageSlideShow);
