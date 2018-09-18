@@ -16,11 +16,11 @@ class ImageSlider extends React.Component {
   render() {
     var mainImg = this.state.firstImg ? this.state.firstImg : this.props.images[0];
     return(
-      <div>
-        <div>
+      <div class="flex-containerVertical">
+        <div class="flex-containerHorizontal">
           <img className ="focusMainImg" src={mainImg}/>
         </div>
-        <div id="div1">
+        <div id="div1" class ="flex-containerHorizontal">
           {this.props.images.map((image, key) => {
             return(
               <img
