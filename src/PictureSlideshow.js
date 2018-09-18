@@ -15,11 +15,12 @@ class ImageSlider extends React.Component {
   render() {
     var mainImg = this.state.firstImg ? this.state.firstImg : this.props.images[0];
     return(
-      <div class="flex-containerVertical">
-        <div class="flex-containerHorizontal">
+      <div>
+        <div className="col-12" maxHeight="100px">
           <img className ="focusMainImg" src={mainImg}/>
+
         </div>
-        <div id="div1" class ="flex-containerHorizontal">
+        <div className="col-12" maxHeight="50px">
           {this.props.images.map((image, key) => {
             return(
               <img
