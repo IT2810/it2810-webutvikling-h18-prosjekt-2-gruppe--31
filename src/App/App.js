@@ -12,10 +12,8 @@ class App extends Component {
         <DropdownButton title="Picture" categories={['Human', 'Nature','Mini']}/>
         <DropdownButton title="Sound" categories={['Music', 'Nature','Stoy']}/>
         <DropdownButton title="Text" categories={['Poem', 'Humour','Wisdom']}/>
-      </div>
-      <div id="container">
         <PictureSlideshow/>
-    </div>
+      </div>
     );
   }
 }

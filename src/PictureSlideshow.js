@@ -1,6 +1,5 @@
 import ReactDOM, { render } from 'react-dom';
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App/App.css';
 
 class ImageSlider extends React.Component {
