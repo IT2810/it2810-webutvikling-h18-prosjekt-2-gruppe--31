@@ -33,7 +33,7 @@ class DropdownButton extends React.Component {
    */
   table() {
     let listItems = this.props.categories.map((category, index) => 
-      <li key={ index }> { category }  </li>);
+      <li className="li" key={ index }> { category }  </li>);
     return listItems;
   }
 
@@ -47,7 +47,7 @@ class DropdownButton extends React.Component {
       <div className="dropdown">
       <div className="button" onClick={this.showDropdownMenu}> { this.props.title } </div>
         { this.state.displayMenu ? (
-          <ul>
+          <ul className="ul">
             { this.table() }
           </ul>
         ):
