@@ -54,3 +54,6 @@
 	margin-left: 18%;
 	margin-right: 18%;
 	}
+.AudioPlayer audio {
+	width: 100%;
+	}
