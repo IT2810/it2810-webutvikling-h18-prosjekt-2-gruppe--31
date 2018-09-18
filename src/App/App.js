@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <DropdownButton title="Picture" categories={['Human', 'Nature','Mini']}/>
-        <DropdownButton title="Sound" categories={['Music', 'Nature','Stoy']}/>
+        <DropdownButton title="Sound" categories={['Music', 'Nature','Sound']}/>
         <DropdownButton title="Text" categories={['Poem', 'Humour','Wisdom']}/>
       </div>
     );
