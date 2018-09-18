@@ -8,14 +8,14 @@ class ImageSlider extends React.Component {
   constructor(){
     super();
     this._handleClick = this._handleClick.bind(this);
-    this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/book1-fugue02.mp3', count : 0};
+    this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : 0};
   }
   _handleClick(e){
     if (this.state.count == 0){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', count : this.state.count + 1});
     }
     else if (this.state.count == 1){
-      this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/book1-fugue02.mp3', count : this.state.count + 1});
+      this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : this.state.count + 1});
     }
     else if (this.state.count == 2){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', count : this.state.count + 1});
