@@ -28,7 +28,7 @@ class DropdownButton extends React.Component {
   }
 
   /* 
-   * Leser fra categorie-listen i App.js
+   * Leser fra categories-listen i App.js
    * index brukes for å gi en unik ID til liste-elementene 
    */
   table() {
