@@ -28,23 +28,23 @@ class DropdownButton extends React.Component {
   }
 
   /* 
-   * Leser fra categorie-listen i App.js
+   * Leser fra categories-listen i App.js
    * index brukes for å gi en unik ID til liste-elementene 
    */
   table() {
     let listItems = this.props.categories.map((category, index) => 
-      <li key={index}> { category }  </li>);
+      <li key={ index }> { category }  </li>);
     return listItems;
   }
 
   /* 
    * Det som skal vises på skjerm 
-   * this.props.title: navn på dropdownbuttonen
+   * this.props.title: navn på dropdownbuttonene
    * this.table(): de forskjellige kategoriene 
    */
   render() {
     return (
-      <div className="dropdown" style={{background:"lightblue", minWidth:"20%"}}>
+      <div className="dropdown">
       <div className="button" onClick={this.showDropdownMenu}> { this.props.title } </div>
         { this.state.displayMenu ? (
           <ul>
