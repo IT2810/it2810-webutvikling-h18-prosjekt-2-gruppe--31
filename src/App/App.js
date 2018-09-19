@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import DropdownButton from '../DropdownButton/DropdownButton';
 import PictureSlideshow from '../PictureSlideshow.js';
+import Words from '../Words.js';
 
 
 
@@ -47,6 +48,7 @@ class App extends Component {
             </form>
           </div>
         <PictureSlideshow/>
+        <Words/>
         </div>
       </div>
     );

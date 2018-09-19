@@ -1,0 +1,43 @@
+.wordContainer{
+    margin-top: 15%;
+    
+    
+}
+
+.wordTitle{
+    text-align: center;
+    color: darkgreen;
+    padding: 1%;
+    margin-top: 5%;
+    font-size:4vw;
+
+}
+
+.wordAuthor{
+    font-style: italic;
+    color: midnightblue;
+    /* padding: 1%; */
+    font-size:1.2vw;
+
+
+}
+
+.wordContent {
+    padding: 2% 20%;
+    white-space: normal;
+    text-align: left;
+    font-size:1.4vw;
+}
+
+/* 
+TODO:
+
+Fix for mobile, a minimum size
+Use media queries to force the font-size back into a set pixel value 
+
+or this?
+:root {
+  font-size: calc(16px + 3vw);
+}
+
+*/

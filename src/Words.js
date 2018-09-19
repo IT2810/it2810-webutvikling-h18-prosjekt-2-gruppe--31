@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './words.css';
 
 class Words extends Component {
 
@@ -19,7 +20,7 @@ class Words extends Component {
   componentDidMount() {
     //this.setState({ isLoading: true });
 
-    fetch('/words/poem/3.json')
+    fetch('/words/Poem/3.json')
       .then(response => {
         if (response.ok) {
           response.json()
@@ -42,15 +43,13 @@ class Words extends Component {
   render() {
 
     return (
-      <div className="wordContainer">
-        {this.state.title}
-        <br></br>
-        {/* {this.state.type} */}
-        <br></br>
-        {this.state.author}
-        <br></br>
-        {this.state.content}
-        <br></br>
+      <div className="wordContainer"> {this.state.title
+        
+      }
+         <div className="wordTitle" > {this.state.title} </div>
+         <div className="wordAuthor" > {this.state.author} </div>
+         <div className="wordContent" > {this.state.content} </div>
+ 
         {/* <button onClick={(e) => this.updateContent("./poem/2.json", e)}>update</button> */}
         {/* this.state.content.split('\n').map((item, i) => {
                         return key={i}> {item} </p>;
