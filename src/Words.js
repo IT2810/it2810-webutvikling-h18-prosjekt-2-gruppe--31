@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import * as poem from '..\\public\\words\\poem\\1.json';
-
 
 class Words extends Component {
 
@@ -14,50 +12,14 @@ class Words extends Component {
       isLoading: false,
       error: null,
     }
-    // this.loadJSON = this.loadJSON.bind(this);
-    // this.updateContent = this.updateContent.bind(this);
   }
 
-  /*
-  loadJSON(filepath, callback) {
-    alert(filepath);
-    let rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", filepath, true);
-    rawFile.onreadystatechange = function () {
-      if (rawFile.readyState === 4 && rawFile.status == "200") {
-        callback(rawFile.responseText);
-      }
-    }
-    rawFile.send(null); 
-  }
-*/
 
-/*
-  updateContent(path) {
-    this.loadJSON(path, function (response) {
-      alert(response);
-      let filecontent = JSON.parse(response);
-      alert(filecontent);
-
-      this.setState({
-        title: filecontent.title,
-        type: filecontent.type,
-        author: filecontent.author,
-        content: filecontent.content,
-      });
-    })
-  }
-  */
-
-  // _handleEvent(e) {
-  //   this.updateContent(e.target.src); // or howeer to get the path
-  // }
 
   componentDidMount() {
     //this.setState({ isLoading: true });
 
-    fetch('/words/poem/1.json')
+    fetch('/words/poem/3.json')
       .then(response => {
         if (response.ok) {
           response.json()
@@ -79,18 +41,8 @@ class Words extends Component {
   
   render() {
 
-    const { title, type, author, contenct, isLoading, error } = this.state;
-
-    if (error) {
-      return <p>{error.message}</p>;
-    }
-
-    if (isLoading) {
-      return <p>Loading ...</p>;
-    }
-    
     return (
-      <div className="TextContainer">
+      <div className="wordContainer">
         {this.state.title}
         <br></br>
         {/* {this.state.type} */}
@@ -100,21 +52,12 @@ class Words extends Component {
         {this.state.content}
         <br></br>
         {/* <button onClick={(e) => this.updateContent("./poem/2.json", e)}>update</button> */}
+        {/* this.state.content.split('\n').map((item, i) => {
+                        return key={i}> {item} </p>;
+                    }) */}
       </div>
     )
   }
 }
 
 export default Words;
-// export { updateContent };
-
-  // export function updatePath(path){
-  //   this.setState({
-  //     title : "Ny Tittel"});
-  // 
-  //     return null; 
-  //   };
-
-
-  //  
-// https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
