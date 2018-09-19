@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
         <div className="col-12">
           <div className="col-12 dropdown" height="25px">
-            <DropdownButton title="Picture" categories={['Human', 'Nature','Mini']}/>
+            <DropdownButton title="Picture" categories={['Human', 'Nature','Animal']}/>
             <DropdownButton title="Sound" categories={['Music', 'Nature','Stoy']} />
             <DropdownButton title="Text" categories={['Poem', 'Humour','Wisdom']}/>
           </div>
