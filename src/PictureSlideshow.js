@@ -11,13 +11,13 @@ class ImageSlider extends React.Component {
     this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : 0};
   }
   _handleClick(e){
-    if (this.state.count == 0){
+    if (this.state.count === 0){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', count : this.state.count + 1});
     }
-    else if (this.state.count == 1){
+    else if (this.state.count === 1){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : this.state.count + 1});
     }
-    else if (this.state.count == 2){
+    else if (this.state.count === 2){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', count : this.state.count + 1});
     }
     else{
@@ -33,16 +33,16 @@ class ImageSlider extends React.Component {
     
     return(
       <div>
-        <div className="col-12" maxHeight="100px">
+        <div className="col-12" maxheight="100px">
           <img className ="focusMainImg" src={mainImg}/>
 
         </div>
-        <div className="col-12" maxHeight="50px">
+        <div className="col-12" maxheight="50px">
           {this.props.images.map((image, id) => {
             return(
               <img
                 key={id}
-                className ={mainImg==image? "selectedThumbnail" :"allThumbnail"}
+                className ={mainImg===image? "selectedThumbnail" :"allThumbnail"}
                 src={image}
                 onClick={this._handleClick} />
             )})}
