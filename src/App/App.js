@@ -7,6 +7,7 @@ import Words from '../Words/Words';
 
 
 const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];
+const audioArr = ['https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3'];
 
 class App extends Component {
 
@@ -14,12 +15,17 @@ class App extends Component {
     super(props);
     this.pictures_db = { Animal: ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'],
       Human: ['../SVG/Human/humans.svg', '../SVG/Human/yoga.svg', '../SVG/Human/standing_human.svg', '../SVG/Human/human-body-size-icons.svg'], 
-      Nature: ['../SVG/Nature/water.svg', '../SVG/Nature/tree.svg', '../SVG/Nature/sun.svg', '../SVG/Nature/forest.svg'] }
+      Nature: ['../SVG/Nature/water.svg', '../SVG/Nature/tree.svg', '../SVG/Nature/sun.svg', '../SVG/Nature/forest.svg'] 
+    }
+    this.audio_db = { Noise:['https://soundbible.com/grab.php?id=2219&type=mp3', 'https://soundbible.com/grab.php?id=2214&type=mp3', 'https://soundbible.com/grab.php?id=2114&type=mp3', 'https://soundbible.com/grab.php?id=640&type=mp3'],
+      Nature: ['http://soundbible.com/grab.php?id=2033&type=mp3', 'http://soundbible.com/grab.php?id=2032&type=mp3', 'https://soundbible.com/grab.php?id=2217&type=mp3', 'http://soundbible.com/grab.php?id=2012&type=mp3' ],
+      Music: ['https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3'] 
+    }
  
-    this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray, index: 0};
+    this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray, all_audio: audioArr };
     this.updateCanvas = this.updateCanvas.bind(this);
-    this.handleIndex.bind(this);
-  }
+    this.wordsCat = "Poem";
+
   
   updateCanvas(title, category) {
     if (title === "Picture") {
@@ -38,12 +44,14 @@ class App extends Component {
         });
     } else if ( title === "Sound") {
       this.setState({
-        sound: category
+        sound: category,
+        all_audio:[audio[0], audio[1], audio[2],audio[3]]
       });
-    } else if (title === "Text") {
+    } else if (title == "Text") {
       this.setState({
         text: category
       });
+      this.wordsCat = category;
     }
   }
 
@@ -57,7 +65,7 @@ class App extends Component {
         <div className="col-12" maxheight="80%">
           <div className="col-12 dropdown" height="25px">
             <DropdownButton title = { this.state.picture } whatDropdown = "Picture" categories={['Human', 'Nature','Animal']} updateCanvas={ this.updateCanvas }/>
-            <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Stoy']} updateCanvas={ this.updateCanvas }/>
+            <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Noise']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
           <PictureSlideshow all_p = {this.state.all_pictures} getIndex = {this.handleIndex.bind(this)}/>
