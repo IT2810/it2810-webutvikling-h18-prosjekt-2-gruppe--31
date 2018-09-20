@@ -31,12 +31,10 @@ class ImageSlider extends React.Component {
     const audioPath = this.state.src;
     let audio;
     audio = <AudioPlayer src = {audioPath}/>
-    
     return(
       <div>
         <div className="col-12" maxheight="100px">
           <img className ="focusMainImg" src={mainImg}/>
-
         </div>
         <div className="col-12" maxheight="50px">
           {this.props.images.map((image, id) => {
@@ -60,6 +58,7 @@ class ImageSlider extends React.Component {
 class ImageSlideShow extends React.Component {
   constructor(props, context){
       super(props, context);
+
       const images = this.props.pictureArray;
       this.state = {images: images};
       }
