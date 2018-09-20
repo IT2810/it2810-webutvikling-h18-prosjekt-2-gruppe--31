@@ -14,23 +14,30 @@ class App extends Component {
       Human: ['../SVG/Human/humans.svg', '../SVG/Human/yoga.svg', '../SVG/Human/standing_human.svg', '../SVG/Human/human-body-size-icons.svg'], 
       Nature: ['../SVG/Nature/water.svg', '../SVG/Nature/tree.svg', '../SVG/Nature/sun.svg', '../SVG/Nature/forest.svg'] }
     
+    const picArray = ['1', '2'];
     this.updateCanvas = this.updateCanvas.bind(this);
-    this.state = { picture: '', sound: '', text: '' , all_pictures: [] };
+    this.state = { picture: '', sound: '', text: '' , p4: '', all_pictures: picArray };
   }
   
   updateCanvas(title, category) {
     if (title == "Picture") {
       let pictures = this.pictures_db[category]
       console.log(pictures);
-      pictures.map((picture) =>
-        fetch(picture)
-         .then( (result) => {
+      Promise.all([
+      fetch(pictures[0]),
+      fetch(pictures[1]),
+      fetch(pictures[2]),
+      fetch(pictures[3]),
+      ])
+        .then( ([p1,p2,p3,p4]) => {
           this.setState({
-            picture: result.url,
-            all_pictures: result.url.all_pictures
-          });
-        })
-      );
+           picture: p1.url,
+           sound: p2.url, 
+           text: p3.url,
+           p4: p4.url,
+           picArray: [p1.url, p2.url, p3.url, p4.url]
+     });
+   });
     } else if ( title == "Sound") {
       this.setState({
         sound: category
@@ -42,6 +49,7 @@ class App extends Component {
     }
   }
 
+  
   render() {
     return (
       <div className="App">
@@ -51,12 +59,13 @@ class App extends Component {
             <DropdownButton title="Sound" categories={['Music', 'Nature','Stoy']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title="Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
-            <Canvas all_p = {this.state.all_pictures}  picture = { this.state.picture } sound = { this.state.sound } text = { this.state.text }/>
+            <Canvas all_p = {this.state.picArray} p4 = {this.state.p4}  picture = { this.state.picture } sound = { this.state.sound } text = { this.state.text }/>
         </div>
       </div>
     );
   }
 }
 
-//<PictureSlideshow all_pictures = {this.state.all_pictures}/>
+
+//<PictureSlideshow p4 = {this.state.p4} picture = { this.state.picture } sound = { this.state.sound } text = { this.state.text }/>
 export default App;
