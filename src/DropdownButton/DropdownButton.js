@@ -5,7 +5,6 @@ class DropdownButton extends React.Component {
 
   constructor(props){
     super(props);
-
     this.handleChange = this.handleChange.bind(this);
     this.state = {type: this.props.title, selection: ''};
   }
@@ -20,7 +19,6 @@ class DropdownButton extends React.Component {
     else {
       this.props.changer(e.target.options[e.target.selectedIndex].text, this.state.type)
     }
-
   }
 
   
