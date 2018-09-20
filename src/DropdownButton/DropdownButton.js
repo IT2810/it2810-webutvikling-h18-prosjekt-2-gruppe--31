@@ -5,21 +5,13 @@ class DropdownButton extends React.Component {
 
   constructor(props){
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {type: this.props.title, selection: ''};
-  }
 
-  handleChange(e) {
-    if (this.state.type === "Picture"){
-      this.props.Changer(e.target.options[e.target.selectedIndex].text, this.state.type);
-    }
-    else if (this.state.type === "Sound"){
-      this.props.Changer(e.target.options[e.target.selectedIndex].text, this.state.type);
-    }
-    else {
-      this.props.Changer(e.target.options[e.target.selectedIndex].text, this.state.type)
-    }
-  }
+    
+
+    this.state = {
+      displayMenu: false,
+      title: this.props.title
+    };
 
   
 
@@ -28,8 +20,9 @@ class DropdownButton extends React.Component {
    * index brukes for å gi en unik ID til liste-elementene 
    */
   table() {
-    let listItems = this.props.categories.map((category) => 
-        <option className="li"  selection = {category} key = {category}> { category }  </option>);
+
+    let listItems = this.props.categories.map((category, index) => 
+      <li onClick={ (e) => this.props.updateCanvas(this.props.whatDropdown, category) } className="li" key={ index }> { category }  </li>);
     return listItems;
   }
 
@@ -39,12 +32,14 @@ class DropdownButton extends React.Component {
    * this.table(): de forskjellige kategoriene 
    */
   render() {
-    const selection = this.props.selection;
     return (
-      
-      <select className="button" selection = {selection} Changer = {this.props.handleStateChange} onChange={this.handleChange}> { this.props.title }>
+
+      <div className="dropdown">
+      <div className="button" onClick={this.showDropdownMenu} key={this.props.whatDropdown}> { this.props.title } </div>
+        { this.state.displayMenu ? (
+          <ul className="ul">
             { this.table() }
-        </select>
+        </ul>
       
     );
   }

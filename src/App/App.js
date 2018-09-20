@@ -2,56 +2,71 @@ import ReactDOM, { render } from 'react-dom';
 import React, { Component } from 'react';
 import './App.css';
 import DropdownButton from '../DropdownButton/DropdownButton';
-import PictureSlideshow from '../PictureSlideshow.js';
+import PictureSlideshow from '../PictureSlideshow.js'
+import Canvas from '../Canvas/Canvas.js'
 
-
+const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];
 
 class App extends Component {
+
   constructor(props) {
     super(props);
-    this.state = {Picture: 'Human', Sound: 'Music', Text: 'Poem'};
-    this.handleStateChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.pictures_db = { Animal: ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'],
+      Human: ['../SVG/Human/humans.svg', '../SVG/Human/yoga.svg', '../SVG/Human/standing_human.svg', '../SVG/Human/human-body-size-icons.svg'], 
+      Nature: ['../SVG/Nature/water.svg', '../SVG/Nature/tree.svg', '../SVG/Nature/sun.svg', '../SVG/Nature/forest.svg'] }
+    
+    //const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];
+    
+    this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray };
+    this.updateCanvas = this.updateCanvas.bind(this);
+    console.log(picArray);
   }
   
-  handleStateChange(selection, type){
-    if (type === "Picture"){
-      this.setState({Picture: selection, Sound: this.state.Sound, Text: this.state.Text});
-    }
-    else if (type === "Sound"){
-      this.setState({Picture: this.state.Picture, Sound: selection, Text: this.state.Text});
-    }
-    else{
-      this.setState({Picture: this.state.Picture, Sound: this.state.Sound, Text: selection});
+  updateCanvas(title, category) {
+    if (title == "Picture") {
+      let pictures = this.pictures_db[category]
+      console.log(pictures);
+      Promise.all([
+      fetch(pictures[0]),
+      fetch(pictures[1]),
+      fetch(pictures[2]),
+      fetch(pictures[3]),
+      ])
+        .then( ([p1,p2,p3,p4]) => {
+          this.setState({
+            picture: category,
+            all_pictures: [p1.url, p2.url, p3.url, p4.url]
+     });
+     console.log(this.state.all_pictures);
+   });
+    } else if ( title == "Sound") {
+      this.setState({
+        sound: category
+      });
+    } else if (title == "Text") {
+      this.setState({
+        text: category
+      });
     }
   }
 
-  handleSubmit(event) {
-    alert(this.state.Picture + " " + this.state.Sound + " " + this.state.Text);
-    event.preventDefault();
-  }
+  
   render() {
-    const selectionPicture = this.state.Picture;
-    const selectionSound = this.state.Sound;
-    const selectionText = this.state.Text;
 
     return (
       <div className="App" maxheight="80%">
         <div className="col-12" maxheight="80%">
           <div className="col-12 dropdown" height="25px">
-          <form className="dropdown" onSubmit={this.handleSubmit}>
-            <DropdownButton title="Picture" selection = {selectionPicture}  categories={['Human', 'Nature','Mini']} Changer={this.handleStateChange.bind(this)}/>
-            <DropdownButton title="Sound" selection = {selectionSound}  categories={['Music', 'Nature','Stoy']} Changer={this.handleStateChange.bind(this)}/>
-            <DropdownButton title="Text" selection = {selectionText} categories={['Poem', 'Humour','Wisdom']} Changer={this.handleStateChange.bind(this)}/>
-            <input type="submit" value="Submit" />
-            </form>
+
+            <DropdownButton title = { this.state.picture } whatDropdown = "Picture" categories={['Human', 'Nature','Animal']} updateCanvas={ this.updateCanvas }/>
+            <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Stoy']} updateCanvas={ this.updateCanvas }/>
+            <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
+
           </div>
-        <PictureSlideshow/>
+            <PictureSlideshow all_p = {this.state.all_pictures} />
         </div>
       </div>
     );
   }
 }
-
-
 export default App;
