@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import DropdownButton from '../DropdownButton/DropdownButton';
 import PictureSlideshow from '../PictureSlideshow.js';
-import Words from '../Words.js';
+import Words from '../Words/Words';
 
 
 const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];

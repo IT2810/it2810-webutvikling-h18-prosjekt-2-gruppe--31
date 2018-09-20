@@ -29,7 +29,8 @@ class ImageSlider extends React.Component {
   render() {
     var mainImg = this.state.firstImg ? this.state.firstImg : this.props.images[0];
     const audioPath = this.state.src;
-    let audio = <AudioPlayer src = {audioPath}/>
+    let audio;
+    audio = <AudioPlayer src = {audioPath}/>
     return(
       <div>
         <div className="col-12" maxheight="100px">
