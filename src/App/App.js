@@ -2,7 +2,9 @@ import ReactDOM, { render } from 'react-dom';
 import React, { Component } from 'react';
 import './App.css';
 import DropdownButton from '../DropdownButton/DropdownButton';
-import PictureSlideshow from '../PictureSlideshow.js'
+import PictureSlideshow from '../PictureSlideshow.js';
+import Words from '../Words.js';
+
 
 const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];
 
@@ -53,7 +55,11 @@ class App extends Component {
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Stoy']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
-          <PictureSlideshow all_p = {this.state.all_pictures} />
+        <PictureSlideshow all_p = {this.state.all_pictures} />
+        
+      <div className="col-12" >
+          <Words props="cat" index="2"/>
+        </div>
         </div>
       </div>
     );

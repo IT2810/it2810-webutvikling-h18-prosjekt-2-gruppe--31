@@ -1,0 +1,89 @@
+/* For mobile-version */
+[class*="wordContainer"] {
+    margin-top: 17%;
+} 
+[class*="wordTitle"] {
+    text-align: center;
+    color: darkgreen;
+    padding: 1%;
+    font-size:7vw;
+}
+[class*="wordAuthor"] {
+    text-align: center;
+    font-style: italic;
+    color: midnightblue;
+    font-size:3.7vw;
+}
+[class*="wordContent"] {
+    padding: 2% 20%;
+    white-space: normal;
+    text-align: left;
+    font-size:4.5vw;
+}
+/* end mobile */
+
+
+
+/* For tablets */
+@media only screen and (min-width: 600px) {
+    .wordContainer{
+        margin-top: 10%;
+    } 
+    .wordTitle{
+        text-align: center;
+        color: darkgreen;
+        padding: 1%;
+        font-size:4.7vw;
+    }
+    .wordAuthor{
+        font-style: italic;
+        color: midnightblue;
+        font-size:2.1vw;
+    }
+    .wordContent {
+        padding: 2% 20%;
+        white-space: normal;
+        text-align: left;
+        font-size:2.4vw;
+    }
+}
+/* end tablet */
+
+
+
+/* For desktop-version */
+@media only screen and (min-width: 924px) {
+    .wordContainer{
+        margin-top: 5%; 
+    }
+    .wordTitle{
+        text-align: center;
+        color: darkgreen;
+        padding: 1%;
+        font-size:4vw;
+    }
+    .wordAuthor{
+        font-style: italic;
+        color: midnightblue;
+        font-size:1.4vw;
+    }
+    .wordContent {
+        padding: 2% 20%;
+        white-space: normal;
+        text-align: left;
+        font-size:1.6vw;
+    }
+}
+
+/* 
+TODO:
+
+Fix for mobile, a minimum size
+Use media queries to force the font-size back into a set pixel value 
+
+or this?
+:root {
+  font-size: calc(16px + 3vw);
+}
+
+*/
