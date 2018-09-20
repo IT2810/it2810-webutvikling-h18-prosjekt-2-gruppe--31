@@ -24,7 +24,9 @@ class Words extends Component {
 
   updateWords(category, index) {
     // let paths = this.words_db[category];
-    let currentPath = this.words_db[category][parseInt(index)];
+    let i = parseInt(index);
+    // alert(i);
+    let currentPath = this.words_db[category][i];
     fetch(currentPath)
       .then(response => {
         if (response.ok) {
