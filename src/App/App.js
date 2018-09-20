@@ -52,13 +52,16 @@ class App extends Component {
 
   
   render() {
+
     return (
-      <div className="App">
-        <div className="col-12">
+      <div className="App" maxheight="80%">
+        <div className="col-12" maxheight="80%">
           <div className="col-12 dropdown" height="25px">
+
             <DropdownButton title = { this.state.picture } whatDropdown = "Picture" categories={['Human', 'Nature','Animal']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Stoy']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
+
           </div>
             <PictureSlideshow all_p = {this.state.all_pictures} />
         </div>
@@ -66,8 +69,4 @@ class App extends Component {
     );
   }
 }
-
-//<Canvas all_p = {this.state.picArray} p4 = {this.state.p4}  picture = { this.state.picture } sound = { this.state.sound } text = { this.state.text }/>
-
-//<PictureSlideshow p4 = {this.state.p4} picture = { this.state.picture } sound = { this.state.sound } text = { this.state.text }/>
 export default App;
