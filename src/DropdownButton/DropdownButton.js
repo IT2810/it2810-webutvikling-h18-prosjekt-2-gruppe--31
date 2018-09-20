@@ -5,11 +5,13 @@ class DropdownButton extends React.Component {
 
   constructor(props){
     super(props);
-       
+    
+
     this.state = {
       displayMenu: false,
+      title: this.props.title
     };
-    
+
     this.showDropdownMenu = this.showDropdownMenu.bind(this);
     this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
   };
@@ -33,7 +35,7 @@ class DropdownButton extends React.Component {
    */
   table() {
     let listItems = this.props.categories.map((category, index) => 
-      <li onClick={ (e) => this.props.updateCanvas(this.props.title, category) } className="li" key={ index }> { category }  </li>);
+      <li onClick={ (e) => this.props.updateCanvas(this.props.whatDropdown, category) } className="li" key={ index }> { category }  </li>);
     return listItems;
   }
 
@@ -45,7 +47,7 @@ class DropdownButton extends React.Component {
   render() {
     return (
       <div className="dropdown">
-      <div className="button" onClick={this.showDropdownMenu}> { this.props.title } </div>
+      <div className="button" onClick={this.showDropdownMenu} key={this.props.whatDropdown}> { this.props.title } </div>
         { this.state.displayMenu ? (
           <ul className="ul">
             { this.table() }
