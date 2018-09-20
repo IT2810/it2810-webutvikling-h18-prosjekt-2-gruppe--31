@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class AudioPlayer extends React.Component {
       
-    render() {
+  render() {
     return (
-        <div className='AudioPlayer'>
+      <div className='AudioPlayer'>
         <audio
-            src={ this.props.src }
-            controls={ true }/>
-          </div>
-        );
-      }
-    }
+          src={ this.props.src }
+          controls={ true }/>          
+      </div>
+    );
+  }
+}
 export default AudioPlayer;
