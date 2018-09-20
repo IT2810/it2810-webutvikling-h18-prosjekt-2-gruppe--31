@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class AudioPlayer extends React.Component {
       
-    render() {
+  render() {
     return (
         <div className='AudioPlayer'>
         <audio
@@ -11,5 +11,5 @@ class AudioPlayer extends React.Component {
           </div>
         );
       }
-    }
+  }
 export default AudioPlayer;
