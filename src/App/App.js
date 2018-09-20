@@ -55,11 +55,10 @@ class App extends Component {
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Stoy']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
-        <PictureSlideshow all_p = {this.state.all_pictures} />
-        
-      <div className="col-12" >
-          <Words cat="Poem" index="2"/>
-        </div>
+          <PictureSlideshow all_p = {this.state.all_pictures} />
+          <div className="col-12" >
+           <Words cat="Poem" index="2"/>
+          </div>
         </div>
       </div>
     );
