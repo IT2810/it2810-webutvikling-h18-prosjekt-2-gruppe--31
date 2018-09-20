@@ -25,7 +25,7 @@ class App extends Component {
     this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray, all_audio: audioArr };
     this.updateCanvas = this.updateCanvas.bind(this);
     this.wordsCat = "Poem";
-  }
+
   
   updateCanvas(title, category) {
     if (title === "Picture") {
@@ -55,6 +55,10 @@ class App extends Component {
     }
   }
 
+  handleIndex(index){
+    this.setState({index: index});
+  }
+
   render() {
     return (
       <div className="App" maxheight="80%">
@@ -64,9 +68,9 @@ class App extends Component {
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Noise']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
-          <PictureSlideshow all_p = {this.state.all_pictures} />
+          <PictureSlideshow all_p = {this.state.all_pictures} getIndex = {this.handleIndex.bind(this)}/>
           <div className="col-12" >
-           <Words cat="Poem" index="2"/>
+           <Words cat="Poem" index={this.state.index}/>
           </div>
         </div>
       </div>
