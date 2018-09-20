@@ -70,7 +70,6 @@ class ImageSlideShow extends React.Component {
   constructor(props){
       super(props); 
       this.handleChange = this.handleChange.bind(this);
-      console.log(this.props.all_a);
   }
   handleChange(e){
     this.props.getIndex(e);
@@ -78,6 +77,7 @@ class ImageSlideShow extends React.Component {
 
   //Gets all_p from App.js, all_p is the chosen category pictures
   render(){
+
     return (
       <div>
         <ImageSlider images = {this.props.all_p} audioArray = {this.props.all_a}handleIndexChange = {this.handleChange.bind(this)}/>

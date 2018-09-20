@@ -27,29 +27,24 @@ class Words extends Component {
     let i = parseInt(index);
     // alert(i);
     let currentPath = this.words_db[category][i];
+    console.log("leak? wordsUpdate");
     fetch(currentPath)
-      .then(response => {
-        if (response.ok) {
-          response.json()
+      .then(response => response.json()
             .then(data => this.setState({
               title: data.title,
               type: data.type,
               author: data.author,
               content: data.content,
-            }))
-        } else {
-          throw new Error('Something went wrong ...');
-        }
-      })
+            })))
       .catch(error => this.setState({ error }));
   };
 
 
   render() {
-
+    console.log("leak? Words");
     return (
       <div className="wordContainer">
-        {this.updateWords(this.props.cat, this.props.index)}
+        
         <div className="wordTitle" > {this.state.title} </div>
         <div className="wordAuthor" > {this.state.author} </div>
         <div className="wordContent" > {this.state.content} </div>

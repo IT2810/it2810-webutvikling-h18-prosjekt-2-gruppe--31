@@ -21,13 +21,13 @@ class App extends Component {
       Nature: ['http://soundbible.com/grab.php?id=2033&type=mp3', 'http://soundbible.com/grab.php?id=2032&type=mp3', 'https://soundbible.com/grab.php?id=2217&type=mp3', 'http://soundbible.com/grab.php?id=2012&type=mp3' ],
       Music: ['https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3'] 
     }
- 
-    this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray, all_audio: audioArr };
+    this.child = React.createRef();
+    this.state = { picture: 'Animal', sound: 'Music', text: 'Poem', all_pictures: picArray, all_audio: audioArr };
     this.updateCanvas = this.updateCanvas.bind(this);
-    this.wordsCat = "Poem";
   }
   
   updateCanvas(title, category) {
+    console.log("leak? updateCanvas");
     if (title === "Picture") {
       let pictures = this.pictures_db[category]
       Promise.all([
@@ -52,12 +52,13 @@ class App extends Component {
       this.setState({
         text: category
       });
-      this.wordsCat = category;
+      this.child.current.updateWords(this.state.text, this.state.index);
     }
   }
 
   handleIndex(index){
     this.setState({index: index});
+    this.child.current.updateWords(this.state.text, this.state.index);
   }
 
   
@@ -73,7 +74,7 @@ class App extends Component {
           </div>
           <PictureSlideshow all_p = {this.state.all_pictures} all_a = {this.state.all_audio} getIndex = {this.handleIndex.bind(this)}/>
           <div className="col-12" >
-           <Words cat={this.wordsCat} index={this.state.index}/>
+           <Words ref={this.child} cat={this.state.text} index={this.state.index}/>
           </div>
         </div>
       </div>
