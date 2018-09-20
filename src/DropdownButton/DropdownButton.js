@@ -9,7 +9,7 @@ class DropdownButton extends React.Component {
     this.state = {
       displayMenu: false,
     };
-
+    
     this.showDropdownMenu = this.showDropdownMenu.bind(this);
     this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
   };
@@ -33,7 +33,7 @@ class DropdownButton extends React.Component {
    */
   table() {
     let listItems = this.props.categories.map((category, index) => 
-      <li className="li" key={ index }> { category }  </li>);
+      <li onClick={ (e) => this.props.updateCanvas(this.props.title, category) } className="li" key={ index }> { category }  </li>);
     return listItems;
   }
 
