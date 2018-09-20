@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './App.css';
 import DropdownButton from '../DropdownButton/DropdownButton';
 import PictureSlideshow from '../PictureSlideshow.js'
-import Canvas from '../Canvas/Canvas.js'
 
 const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];
 
@@ -14,18 +13,14 @@ class App extends Component {
     this.pictures_db = { Animal: ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'],
       Human: ['../SVG/Human/humans.svg', '../SVG/Human/yoga.svg', '../SVG/Human/standing_human.svg', '../SVG/Human/human-body-size-icons.svg'], 
       Nature: ['../SVG/Nature/water.svg', '../SVG/Nature/tree.svg', '../SVG/Nature/sun.svg', '../SVG/Nature/forest.svg'] }
-    
-    //const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];
-    
+ 
     this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray };
     this.updateCanvas = this.updateCanvas.bind(this);
-    console.log(picArray);
   }
   
   updateCanvas(title, category) {
     if (title == "Picture") {
       let pictures = this.pictures_db[category]
-      console.log(pictures);
       Promise.all([
       fetch(pictures[0]),
       fetch(pictures[1]),
@@ -36,9 +31,8 @@ class App extends Component {
           this.setState({
             picture: category,
             all_pictures: [p1.url, p2.url, p3.url, p4.url]
-     });
-     console.log(this.state.all_pictures);
-   });
+          });
+        });
     } else if ( title == "Sound") {
       this.setState({
         sound: category
@@ -50,20 +44,16 @@ class App extends Component {
     }
   }
 
-  
   render() {
-
     return (
       <div className="App" maxheight="80%">
         <div className="col-12" maxheight="80%">
           <div className="col-12 dropdown" height="25px">
-
             <DropdownButton title = { this.state.picture } whatDropdown = "Picture" categories={['Human', 'Nature','Animal']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Stoy']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
-
           </div>
-            <PictureSlideshow all_p = {this.state.all_pictures} />
+          <PictureSlideshow all_p = {this.state.all_pictures} />
         </div>
       </div>
     );

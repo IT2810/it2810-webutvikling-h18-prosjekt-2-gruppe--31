@@ -25,13 +25,14 @@ class DropdownButton extends React.Component {
       document.removeEventListener('click', this.hideDropdownMenu);
     });
   }
+
   /* 
    * Leser fra categories-listen i App.js
    * index brukes for å gi en unik ID til liste-elementene 
    */
   table() {
     let listItems = this.props.categories.map((category, index) => 
-      <li onClick={ (e) => this.props.updateCanvas(this.props.whatDropdown, category) } className="li" key={ index }> { category }  </li>);
+      <li onClick={ (e) => this.props.updateCanvas(this.props.whatDropdown, category) } className="li" key={ index }> { category } </li>);
     return listItems;
   };
 
@@ -42,19 +43,18 @@ class DropdownButton extends React.Component {
    */
   render() {
     return (
-
       <div className="dropdown">
-      <div className="button" onClick={this.showDropdownMenu} key={this.props.whatDropdown}> { this.props.title } </div>
+      <div className="button" onClick={ this.showDropdownMenu } key={ this.props.whatDropdown }> { this.props.title } </div>
         { this.state.displayMenu ? (
           <ul className="ul">
             { this.table() }
-            </ul>
-         ):
-         (null)
-         }
-       </div>
-     );
-   }
- }
+          </ul>
+        ):
+        (null)
+        }
+      </div>
+    );
+  }
+}
 
 export default DropdownButton;
