@@ -16,8 +16,9 @@ class App extends Component {
       Human: ['../SVG/Human/humans.svg', '../SVG/Human/yoga.svg', '../SVG/Human/standing_human.svg', '../SVG/Human/human-body-size-icons.svg'], 
       Nature: ['../SVG/Nature/water.svg', '../SVG/Nature/tree.svg', '../SVG/Nature/sun.svg', '../SVG/Nature/forest.svg'] }
  
-    this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray };
+    this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray, index: 0};
     this.updateCanvas = this.updateCanvas.bind(this);
+    this.handleIndex.bind(this);
   }
   
   updateCanvas(title, category) {
@@ -46,6 +47,10 @@ class App extends Component {
     }
   }
 
+  handleIndex(index){
+    this.setState({index: index});
+  }
+
   render() {
     return (
       <div className="App" maxheight="80%">
@@ -55,9 +60,9 @@ class App extends Component {
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Stoy']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
-          <PictureSlideshow all_p = {this.state.all_pictures} />
+          <PictureSlideshow all_p = {this.state.all_pictures} getIndex = {this.handleIndex.bind(this)}/>
           <div className="col-12" >
-           <Words cat="Poem" index="2"/>
+           <Words cat="Poem" index={this.state.index}/>
           </div>
         </div>
       </div>
