@@ -21,7 +21,7 @@ class App extends Component {
   }
   
   updateCanvas(title, category) {
-    if (title == "Picture") {
+    if (title === "Picture") {
       let pictures = this.pictures_db[category]
       Promise.all([
         fetch(pictures[0]),
@@ -35,11 +35,11 @@ class App extends Component {
             all_pictures: [p1.url, p2.url, p3.url, p4.url]
           });
         });
-    } else if ( title == "Sound") {
+    } else if ( title === "Sound") {
       this.setState({
         sound: category
       });
-    } else if (title == "Text") {
+    } else if (title === "Text") {
       this.setState({
         text: category
       });
