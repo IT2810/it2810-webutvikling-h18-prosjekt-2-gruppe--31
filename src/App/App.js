@@ -24,10 +24,10 @@ class App extends Component {
     if (title == "Picture") {
       let pictures = this.pictures_db[category]
       Promise.all([
-      fetch(pictures[0]),
-      fetch(pictures[1]),
-      fetch(pictures[2]),
-      fetch(pictures[3]),
+        fetch(pictures[0]),
+        fetch(pictures[1]),
+        fetch(pictures[2]),
+        fetch(pictures[3]),
       ])
         .then( ([p1,p2,p3,p4]) => {
           this.setState({
