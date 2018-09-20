@@ -58,7 +58,7 @@ class App extends Component {
         <PictureSlideshow all_p = {this.state.all_pictures} />
         
       <div className="col-12" >
-          <Words props="cat" index="2"/>
+          <Words cat="Poem" index="2"/>
         </div>
         </div>
       </div>
