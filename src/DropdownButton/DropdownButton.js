@@ -11,13 +11,13 @@ class DropdownButton extends React.Component {
 
   handleChange(e) {
     if (this.state.type === "Picture"){
-      this.props.Changer(e.target.options[e.target.selectedIndex].text, this.state.type);
+      this.props.changer(e.target.options[e.target.selectedIndex].text, this.state.type);
     }
     else if (this.state.type === "Sound"){
-      this.props.Changer(e.target.options[e.target.selectedIndex].text, this.state.type);
+      this.props.changer(e.target.options[e.target.selectedIndex].text, this.state.type);
     }
     else {
-      this.props.Changer(e.target.options[e.target.selectedIndex].text, this.state.type)
+      this.props.changer(e.target.options[e.target.selectedIndex].text, this.state.type)
     }
   }
 
@@ -42,7 +42,7 @@ class DropdownButton extends React.Component {
     const selection = this.props.selection;
     return (
       
-      <select className="button" selection = {selection} Changer = {this.props.handleStateChange} onChange={this.handleChange}> { this.props.title }>
+      <select className="button" selection = {selection} changer = {this.props.handleStateChange} onChange={this.handleChange}> { this.props.title }>
             { this.table() }
         </select>
       
