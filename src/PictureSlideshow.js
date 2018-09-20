@@ -4,7 +4,7 @@ import './App/App.css';
 import AudioPlayer from './AudioPlayer.js';
 
 class ImageSlider extends React.Component {
-  
+
   constructor(props){
     super(props);
     this._handleClick = this._handleClick.bind(this);
@@ -33,32 +33,33 @@ class ImageSlider extends React.Component {
     else{
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3', count : 0});
       this.handleIndexChange(this.state.count);
+
     }
   }
-  
+
   render() {
     var mainImg = this.state.firstImg ? this.state.firstImg : this.props.images[0];
     const audioPath = this.state.src;
     let audio;
-    audio = <AudioPlayer src = {audioPath}/>
-    return(
+    audio = <AudioPlayer src={audioPath} />
+    return (
       <div>
         <div className="col-12" maxheight="100px">
-          <img className ="focusMainImg" src={mainImg}/>
+          <img className="focusMainImg" src={mainImg} />
         </div>
         <div className="col-12" maxheight="50px">
           { this.props.images.map((image, id) => {
             return(
               <img
                 key={id}
-                className ={mainImg===image? "selectedThumbnail" :"allThumbnail"}
+                className={mainImg === image ? "selectedThumbnail" : "allThumbnail"}
                 src={image}
                 onClick={this._handleClick} />
             )}
           )}
         </div>
         <div className="AudioPlayer">
-              { audio }
+          {audio}
         </div>
       </div>
     )
