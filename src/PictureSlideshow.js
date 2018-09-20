@@ -5,24 +5,34 @@ import AudioPlayer from './AudioPlayer.js';
 
 class ImageSlider extends React.Component {
   
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this._handleClick = this._handleClick.bind(this);
     this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : 0};
+    this.handleIndexChange.bind(this);
   }
 
+
+  handleIndexChange(e){
+    console.log(e);
+    this.props.handleIndexChange(e);
+  }
   _handleClick(e){
     if (this.state.count === 0){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', count : this.state.count + 1});
+      this.handleIndexChange(this.state.count);
     }
     else if (this.state.count === 1){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : this.state.count + 1});
+      this.handleIndexChange(this.state.count);
     }
     else if (this.state.count === 2){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', count : this.state.count + 1});
+      this.handleIndexChange(this.state.count);
     }
     else{
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3', count : 0});
+      this.handleIndexChange(this.state.count);
     }
   }
   
@@ -58,13 +68,17 @@ class ImageSlider extends React.Component {
 class ImageSlideShow extends React.Component {
   constructor(props){
       super(props); 
+      this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e){
+    this.props.getIndex(e);
   }
 
   //Gets all_p from App.js, all_p is the chosen category pictures
   render(){
     return (
       <div>
-        <ImageSlider images = {this.props.all_p}/>
+        <ImageSlider images = {this.props.all_p} handleIndexChange = {this.handleChange.bind(this)}/>
       </div>
     )
   }
