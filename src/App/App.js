@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import DropdownButton from '../DropdownButton/DropdownButton';
 import PictureSlideshow from '../PictureSlideshow.js';
-import Words from '../Words.js';
+import Words from '../Words/Words';
 
 
 const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];
@@ -28,13 +28,13 @@ class App extends Component {
   }
   
   updateCanvas(title, category) {
-    if (title == "Picture") {
+    if (title === "Picture") {
       let pictures = this.pictures_db[category]
       Promise.all([
-      fetch(pictures[0]),
-      fetch(pictures[1]),
-      fetch(pictures[2]),
-      fetch(pictures[3]),
+        fetch(pictures[0]),
+        fetch(pictures[1]),
+        fetch(pictures[2]),
+        fetch(pictures[3]),
       ])
         .then( ([p1,p2,p3,p4]) => {
           this.setState({
@@ -42,14 +42,11 @@ class App extends Component {
             all_pictures: [p1.url, p2.url, p3.url, p4.url]
           });
         });
-    } else if ( title == "Sound") {
-      let audio = this.audio_db[category]
-
+    } else if ( title === "Sound") {
       this.setState({
         sound: category,
         all_audio:[audio[0], audio[1], audio[2],audio[3]]
       });
-
     } else if (title == "Text") {
       this.setState({
         text: category
@@ -67,11 +64,10 @@ class App extends Component {
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Noise']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
-        <PictureSlideshow all_p = {this.state.all_pictures} />
-        
-      <div className="col-12" >
-          <Words cat={this.wordsCat} index="2"/>
-        </div>
+          <PictureSlideshow all_p = {this.state.all_pictures} />
+          <div className="col-12" >
+           <Words cat="Poem" index="2"/>
+          </div>
         </div>
       </div>
     );

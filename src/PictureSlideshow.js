@@ -41,40 +41,37 @@ class ImageSlider extends React.Component {
           <img className="focusMainImg" src={mainImg} />
         </div>
         <div className="col-12" maxheight="50px">
-          {this.props.images.map((image, id) => {
-            return (
+          { this.props.images.map((image, id) => {
+            return(
               <img
                 key={id}
                 className={mainImg === image ? "selectedThumbnail" : "allThumbnail"}
                 src={image}
                 onClick={this._handleClick} />
-            )
-          })}
+            )}
+          )}
         </div>
         <div className="AudioPlayer">
           {audio}
         </div>
-
       </div>
     )
   }
 }
 
 class ImageSlideShow extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
+  constructor(props){
+      super(props); 
   }
 
-  render() {
+  //Gets all_p from App.js, all_p is the chosen category pictures
+  render(){
     return (
       <div>
-        <ImageSlider images={this.props.all_p} />
+        <ImageSlider images = {this.props.all_p}/>
       </div>
     )
   }
 }
-
-/*ReactDOM.render(<ImageSlideShow />, document.getElementById('container'));*/
 
 export default (ImageSlider, ImageSlideShow);
