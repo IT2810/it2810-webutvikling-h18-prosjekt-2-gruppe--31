@@ -14,24 +14,24 @@ class ImageSlider extends React.Component {
 
 
   handleIndexChange(e){
-    console.log(e);
     this.props.handleIndexChange(e);
   }
+
   _handleClick(e){
     if (this.state.count === 0){
-      this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', count : this.state.count + 1});
+      this.setState({firstImg : e.target.src, src : this.props.audioArray[0], count : this.state.count + 1});
       this.handleIndexChange(this.state.count);
     }
     else if (this.state.count === 1){
-      this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : this.state.count + 1});
+      this.setState({firstImg : e.target.src, src : this.props.audioArray[1], count : this.state.count + 1});
       this.handleIndexChange(this.state.count);
     }
     else if (this.state.count === 2){
-      this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', count : this.state.count + 1});
+      this.setState({firstImg : e.target.src, src : this.props.audioArray[2], count : this.state.count + 1});
       this.handleIndexChange(this.state.count);
     }
     else{
-      this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3', count : 0});
+      this.setState({firstImg : e.target.src, src : this.props.audioArray[3], count : 0});
       this.handleIndexChange(this.state.count);
 
     }
@@ -70,6 +70,7 @@ class ImageSlideShow extends React.Component {
   constructor(props){
       super(props); 
       this.handleChange = this.handleChange.bind(this);
+      console.log(this.props.all_a);
   }
   handleChange(e){
     this.props.getIndex(e);
@@ -79,7 +80,7 @@ class ImageSlideShow extends React.Component {
   render(){
     return (
       <div>
-        <ImageSlider images = {this.props.all_p} handleIndexChange = {this.handleChange.bind(this)}/>
+        <ImageSlider images = {this.props.all_p} audioArray = {this.props.all_a}handleIndexChange = {this.handleChange.bind(this)}/>
       </div>
     )
   }
