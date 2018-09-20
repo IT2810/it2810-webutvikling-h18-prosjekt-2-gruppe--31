@@ -5,35 +5,33 @@ class DropdownButton extends React.Component {
 
   constructor(props){
     super(props);
-       
-    this.state = {
-      displayMenu: false,
-    };
-    
-    this.showDropdownMenu = this.showDropdownMenu.bind(this);
-    this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
-  };
-  
-  showDropdownMenu(event) {
-    event.preventDefault();
-    this.setState({ displayMenu: true }, () => {
-      document.addEventListener('click', this.hideDropdownMenu);
-    });
+
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {type: this.props.title, selection: ''};
   }
-  
-  hideDropdownMenu() {
-    this.setState({ displayMenu: false }, () => {
-      document.removeEventListener('click', this.hideDropdownMenu);
-    });
+
+  handleChange(e) {
+    if (this.state.type === "Picture"){
+      this.props.changer(e.target.options[e.target.selectedIndex].text, this.state.type);
+    }
+    else if (this.state.type === "Sound"){
+      this.props.changer(e.target.options[e.target.selectedIndex].text, this.state.type);
+    }
+    else {
+      this.props.changer(e.target.options[e.target.selectedIndex].text, this.state.type)
+    }
+
   }
+
+  
 
   /* 
    * Leser fra categories-listen i App.js
    * index brukes for å gi en unik ID til liste-elementene 
    */
   table() {
-    let listItems = this.props.categories.map((category, index) => 
-      <li onClick={ (e) => this.props.updateCanvas(this.props.title, category) } className="li" key={ index }> { category }  </li>);
+    let listItems = this.props.categories.map((category) => 
+        <option className="li"  selection = {category} key = {category}> { category }  </option>);
     return listItems;
   }
 
@@ -43,17 +41,13 @@ class DropdownButton extends React.Component {
    * this.table(): de forskjellige kategoriene 
    */
   render() {
+    const selection = this.props.selection;
     return (
-      <div className="dropdown">
-      <div className="button" onClick={this.showDropdownMenu}> { this.props.title } </div>
-        { this.state.displayMenu ? (
-          <ul className="ul">
+      
+      <select className="button" selection = {selection} changer = {this.props.handleStateChange} onChange={this.handleChange}> { this.props.title }>
             { this.table() }
-          </ul>
-        ):
-        (null)
-        }
-      </div>
+        </select>
+      
     );
   }
 }
