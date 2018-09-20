@@ -10,6 +10,7 @@ class ImageSlider extends React.Component {
     this._handleClick = this._handleClick.bind(this);
     this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : 0};
   }
+
   _handleClick(e){
     if (this.state.count === 0){
       this.setState({firstImg : e.target.src, src : 'https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', count : this.state.count + 1});
@@ -30,12 +31,10 @@ class ImageSlider extends React.Component {
     const audioPath = this.state.src;
     let audio;
     audio = <AudioPlayer src = {audioPath}/>
-    
     return(
       <div>
         <div className="col-12" maxheight="100px">
           <img className ="focusMainImg" src={mainImg}/>
-
         </div>
         <div className="col-12" maxheight="50px">
           {this.props.images.map((image, id) => {
@@ -57,22 +56,16 @@ class ImageSlider extends React.Component {
 }
 
 class ImageSlideShow extends React.Component {
-  constructor(props, context){
-      super(props, context);
-      this.state = {};
-      this.state.images= [];
-      this.state.images = [('https://www.shareicon.net/data/512x512/2016/11/30/859203_nature_512x512.png'),
-      ('https://www.shareicon.net/data/512x512/2016/11/16/854281_nature_512x512.png'),
-      ('https://www.shareicon.net/data/512x512/2016/11/16/854313_flower_512x512.png'),
-    ('https://www.shareicon.net/data/512x512/2016/11/16/854312_nature_512x512.png')];
-      }
+  constructor(props){
+      super(props);
+      console.log(this.props); 
+     }
   
 render(){
-   
   return (
-            <div>
-                <ImageSlider images = {this.state.images}/>
-             </div>
+    <div>
+      <ImageSlider images = {this.props.all_p}/>
+    </div>
   )
 }
 }
