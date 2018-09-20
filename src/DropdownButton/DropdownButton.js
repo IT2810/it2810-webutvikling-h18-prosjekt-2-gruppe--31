@@ -5,26 +5,35 @@ class DropdownButton extends React.Component {
 
   constructor(props){
     super(props);
-
-    
-
-    this.state = {
+    this.state = ({
       displayMenu: false,
       title: this.props.title
-    };
-
+    });
+    this.showDropdownMenu = this.showDropdownMenu.bind(this);
+    this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+  };
   
-
+  showDropdownMenu(event) {
+    event.preventDefault();
+    this.setState({ displayMenu: true }, () => {
+      document.addEventListener('click', this.hideDropdownMenu);
+    });
+  }
+  
+  hideDropdownMenu() {
+    this.setState({ displayMenu: false }, () => {
+      document.removeEventListener('click', this.hideDropdownMenu);
+    });
+  }
   /* 
    * Leser fra categories-listen i App.js
    * index brukes for å gi en unik ID til liste-elementene 
    */
   table() {
-
     let listItems = this.props.categories.map((category, index) => 
       <li onClick={ (e) => this.props.updateCanvas(this.props.whatDropdown, category) } className="li" key={ index }> { category }  </li>);
     return listItems;
-  }
+  };
 
   /* 
    * Det som skal vises på skjerm 
@@ -39,10 +48,13 @@ class DropdownButton extends React.Component {
         { this.state.displayMenu ? (
           <ul className="ul">
             { this.table() }
-        </ul>
-      
-    );
-  }
-}
+            </ul>
+         ):
+         (null)
+         }
+       </div>
+     );
+   }
+ }
 
 export default DropdownButton;
