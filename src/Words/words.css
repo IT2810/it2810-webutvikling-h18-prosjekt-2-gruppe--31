@@ -16,7 +16,7 @@
     font-size:3.7vw;
 }
 [class*="wordContent"] {
-    padding: 2% 20%;
+    padding: 0% 20%;
     white-space: normal;
     text-align: left;
     font-size:4.5vw;
@@ -44,7 +44,7 @@
         font-size:2.1vw;
     }
     .wordContent {
-        padding: 2% 20%;
+        padding: 0% 20%;
         white-space: normal;
         text-align: left;
         font-size:2.4vw;
@@ -81,15 +81,3 @@
     }
 }
 
-/* 
-TODO:
-
-Fix for mobile, a minimum size
-Use media queries to force the font-size back into a set pixel value 
-
-or this?
-:root {
-  font-size: calc(16px + 3vw);
-}
-
-*/
