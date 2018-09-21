@@ -24,10 +24,12 @@ class Words extends Component {
 
   updateWords(category, index) {
     // let paths = this.words_db[category];
+    if (category === 'Text'){
+      return;
+    }
     let i = parseInt(index);
     // alert(i);
     let currentPath = this.words_db[category][i];
-    console.log("leak? wordsUpdate");
     fetch(currentPath)
       .then(response => response.json()
             .then(data => this.setState({
@@ -41,7 +43,6 @@ class Words extends Component {
 
 
   render() {
-    console.log("leak? Words");
     return (
       <div className="wordContainer">
         

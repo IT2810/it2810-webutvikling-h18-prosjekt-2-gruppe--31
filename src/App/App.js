@@ -22,12 +22,12 @@ class App extends Component {
       Music: ['https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3'] 
     }
     this.child = React.createRef();
-    this.state = { picture: 'Picture', sound: 'Sound', text: 'Poem', all_pictures: picArray, all_audio: audioArr };
+    this.childRerender = React.createRef();
+    this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray, all_audio: audioArr, index: 0 };
     this.updateCanvas = this.updateCanvas.bind(this);
   }
   
   updateCanvas(title, category) {
-    console.log("leak? updateCanvas");
     if (title === "Picture") {
       let pictures = this.pictures_db[category]
       Promise.all([
@@ -37,28 +37,34 @@ class App extends Component {
         fetch(pictures[3]),
       ])
         .then( ([p1,p2,p3,p4]) => {
+          
           this.setState({
             picture: category,
             all_pictures: [p1.url, p2.url, p3.url, p4.url]
           });
+          this.childRerender.current.childRerender(p1.url);
+          
         });
+        
     } else if ( title === "Sound") {
       let audio = this.audio_db[category]
       this.setState({
         sound: category,
         all_audio:[audio[0], audio[1], audio[2],audio[3]]
       });
+      this.childRerender.current.childUpdateAudio(audio[0]);
     } else if (title === "Text") {
       this.setState({
         text: category
       });
-      this.child.current.updateWords(this.state.text, this.state.index);
+      this.child.current.updateWords(category, this.state.index);
+      
     }
   }
 
   handleIndex(index){
     this.setState({index: index});
-    this.child.current.updateWords(this.state.text, this.state.index);
+    this.child.current.updateWords(this.state.text, index);
   }
 
   
@@ -72,7 +78,7 @@ class App extends Component {
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Noise']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
-          <PictureSlideshow all_p = {this.state.all_pictures} all_a = {this.state.all_audio} getIndex = {this.handleIndex.bind(this)}/>
+          <PictureSlideshow ref ={this.childRerender} all_p = {this.state.all_pictures} all_a = {this.state.all_audio} getIndex = {this.handleIndex.bind(this)}/>
           <div className="col-12" >
            <Words ref={this.child} cat={this.state.text} index={this.state.index}/>
           </div>
