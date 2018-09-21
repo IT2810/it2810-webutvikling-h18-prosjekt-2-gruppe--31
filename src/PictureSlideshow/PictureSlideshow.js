@@ -1,6 +1,7 @@
 import React from 'react';
-import './App/App.css';
-import AudioPlayer from './AudioPlayer.js';
+import '../App/App.css';
+import AudioPlayer from '../AudioPlayer';
+import './PictureSlideshow.css'
 
 class ImageSlider extends React.Component {
 
@@ -78,7 +79,7 @@ class ImageSlideShow extends React.Component {
 
     return (
       <div>
-        <ImageSlider images = {this.props.all_p} audioArray = {this.props.all_a}handleIndexChange = {this.handleChange.bind(this)}/>
+        <ImageSlider images = {this.props.all_p} audioArray = {this.props.all_a} handleIndexChange = {this.handleChange.bind(this)}/>
       </div>
     )
   }

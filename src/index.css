@@ -25,35 +25,3 @@
     display: table;
 }
 
-.allThumbnail {
-	max-width: 15%;
-	min-width: 5%;
-	max-height: 10%;
-	border: 0.2vmin solid #555;
-  }
-
-.selectedThumbnail {	
-	max-width: 15%;
-	min-width: 5%;
-	max-height: 10%;
-	border: 0.2vmin solid #D00;
-	box-shadow: 3px 3px 5px #676464;
-	}
-	
-.focusMainImg {
-	max-width: 40%;
-	min-width: 10%;
-	max-height: 50%;
-	border: 0.2vmin solid #555;
-	}
-	
-.AudioPlayer {
-	position: center;
-	height: 25px;
-	border-radius: 4px;
-	margin-left: 18%;
-	margin-right: 18%;
-	}
-.AudioPlayer audio {
-	width: 100%;
-	}

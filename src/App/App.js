@@ -2,7 +2,7 @@ import ReactDOM, { render } from 'react-dom';
 import React, { Component } from 'react';
 import './App.css';
 import DropdownButton from '../DropdownButton/DropdownButton';
-import PictureSlideshow from '../PictureSlideshow.js';
+import PictureSlideshow from '../PictureSlideshow/PictureSlideshow';
 import Words from '../Words/Words';
 
 
