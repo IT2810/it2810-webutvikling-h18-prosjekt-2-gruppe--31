@@ -1,4 +1,4 @@
-### " it2810-webutvikling-h18-prosjekt-2-gruppe--31" 
+# " it2810-webutvikling-h18-prosjekt-2-gruppe--31" 
 
 App.js:
 Main class
@@ -21,25 +21,22 @@ Contains the code for the dropdownbuttons. Takes input from App.js and sets the 
 
 ## Documentation
 
-# AJAX
+## AJAX
 Vi har valgt å bruke fetch()-metoden til å laste ned bildene og JSON-tekstene. Det er en enkel metode for å hente bildene for så og oppdatere state'en av resultatet. 
 
-# Responsive web design
-
-
-# Testing
+### Testing
 
 ## Sources 
-# Image sources:
+### Image sources:
 Flaticon
 The Craft Chop
 svg images
 
-# Audio sources:
+### Audio sources:
 soundbible.com
 mfiles.co.uk
 
-# Text sources:
+### Text sources:
 
 
 ## Dependencies
@@ -47,7 +44,7 @@ React
 Node.js
 AJAX
 
-# Built with
+## Built with
 node.js
 
 ## Contributing
