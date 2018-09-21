@@ -21,33 +21,33 @@ Contains the code for the dropdownbuttons. Takes input from App.js and sets the 
 
 ## Documentation
 
-## AJAX
+### AJAX
 Vi har valgt å bruke fetch()-metoden til å laste ned bildene og JSON-tekstene. Det er en enkel metode for å hente bildene for så og oppdatere state'en av resultatet. 
 
 ### Testing
 
 ## Sources 
 ### Image sources:
-Flaticon
-The Craft Chop
-svg images
+* [Flaticon] (https://www.flaticon.com/)
+* [The Craft Chop] (http://thecraftchop.com/)
+
 
 ### Audio sources:
-soundbible.com
-mfiles.co.uk
+* [Soundbible] (https://soundbible.com/)
+* [mfiles] (https://www.mfiles.co.uk/)
 
 ### Text sources:
 
 
 ## Dependencies
-React
-Node.js
-AJAX
+* React
+* Node.js
+* AJAX
 
 ## Built with
 node.js
 
 ## Contributing
-Thea Tokstad
-Katrine Lie Holm
-Jack Syvertsen
+* Thea Tokstad
+* Katrine Lie Holm
+* Jack Syvertsen
