@@ -15,7 +15,7 @@ Contains two classes, ImageSlider and ImageSlideshow
 
 Words.js:
 
-
+Dropdownbutton.js: Contains the code for the dropdownbuttons. Takes input from App.js and sets the category for the button. OnClick updates the canvas and sets the appropriate pictures.
 
 Image sources:
 Flaticon
