@@ -22,7 +22,7 @@ class App extends Component {
       Music: ['https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3'] 
     }
     this.child = React.createRef();
-    this.state = { picture: 'Animal', sound: 'Music', text: 'Poem', all_pictures: picArray, all_audio: audioArr };
+    this.state = { picture: 'Picture', sound: 'Sound', text: 'Poem', all_pictures: picArray, all_audio: audioArr };
     this.updateCanvas = this.updateCanvas.bind(this);
   }
   
@@ -48,7 +48,7 @@ class App extends Component {
         sound: category,
         all_audio:[audio[0], audio[1], audio[2],audio[3]]
       });
-    } else if (title == "Text") {
+    } else if (title === "Text") {
       this.setState({
         text: category
       });
