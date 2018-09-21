@@ -1,0 +1,35 @@
+.allThumbnail {
+	max-width: 15%;
+	min-width: 5%;
+	max-height: 10%;
+	border: 0.2vmin solid #555;
+  }
+
+.selectedThumbnail {	
+	max-width: 15%;
+	min-width: 5%;
+	max-height: 10%;
+	border: 0.2vmin solid #D00;
+	box-shadow: 3px 3px 5px #676464;
+}
+	
+.focusMainImg {
+	max-width: 80%;
+	min-width: 20%;
+	max-height: 60%;
+	border: 0.2vmin solid #555;
+	margin-top: 5%;
+}
+	
+.AudioPlayer {
+	position: center;
+	height: 25px;
+	border-radius: 4px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.AudioPlayer audio {
+	position: center;
+	width: 100%;
+	margin-top: 20px;
+}

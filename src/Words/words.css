@@ -1,0 +1,83 @@
+/* For mobile-version */
+[class*="wordContainer"] {
+    margin-top: 25%;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+} 
+[class*="wordTitle"] {
+    text-align: center;
+    color: #BC986A;
+    padding: 1%;
+    font-size:7vw;
+}
+[class*="wordAuthor"] {
+    text-align: center;
+    font-style: italic;
+    color: #FBEEC1;
+    font-size:3.7vw;
+}
+[class*="wordContent"] {
+    padding: 0% 20%;
+    white-space: normal;
+    text-align: left;
+    font-size:4.5vw;
+    color: #DAAD86
+}
+/* end mobile */
+
+
+
+/* For tablets */
+@media only screen and (min-width: 600px) {
+    .wordContainer{
+        margin-top: 12%;
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    } 
+    .wordTitle{
+        text-align: center;
+        color: #BC986A;
+        padding: 1%;
+        font-size:4.7vw;
+    }
+    .wordAuthor{
+        font-style: italic;
+        color: #FBEEC1;
+        font-size:2.1vw;
+    }
+    .wordContent {
+        padding: 0% 20%;
+        white-space: normal;
+        text-align: left;
+        font-size:2.4vw;
+        color: #DAAD86
+    }
+}
+/* end tablet */
+
+
+
+/* For desktop-version */
+@media only screen and (min-width: 924px) {
+    .wordContainer{
+        margin-top: 5%; 
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    }
+    .wordTitle{
+        text-align: center;
+        color: #BC986A;
+        padding: 1%;
+        font-size:4vw;
+    }
+    .wordAuthor{
+        font-style: italic;
+        color: #FBEEC1;
+        font-size:1.4vw;
+    }
+    .wordContent {
+        padding: 2% 20%;
+        white-space: normal;
+        text-align: left;
+        font-size:1.6vw;
+        color: #DAAD86
+    }
+}
+

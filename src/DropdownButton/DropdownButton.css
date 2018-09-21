@@ -1,13 +1,13 @@
 /* For mobile-version */
-[class*="dropdown"] {
+[class="dropdown"] {
   position: relative;
   display: inline-block;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 2.3vmin;
-  background: lightblue;
+  background: #659DBD;
   min-width: 24%;
 }
-[class*="ul"] {
+[class="ul"] {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -26,11 +26,15 @@
 }
 [class*="button"] {
   height:1%;
-  background-color: lightblue ;
+  background-color: #659DBD ;
   padding:12px;
   border-radius:5px;
   font-weight:bold;
   color:white;
+ /* border: white;
+  border-style: solid;
+  border-width: 0.2px;
+  */
 }
 
 /* For tablets */
@@ -38,9 +42,9 @@
   .dropdown {
     position: relative;
     display: inline-block;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 2.3vmin;
-    background: lightblue;
+    background: #659DBD;
     min-width: 24%;
   }
   .ul {
@@ -65,7 +69,7 @@
   }
   .button {
     height:1%;
-    background-color: lightblue ;
+    background-color: #659DBD ;
     padding:12px;
     border-radius:5px;
     font-weight:bold;
@@ -85,13 +89,13 @@
 }
 
 /* For desktop-version */
-@media only screen and (min-width: 770px) {
+@media only screen and (min-width: 924px) {
   .dropdown {
     position: relative;
     display: inline-block;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 2.3vmin;
-    background: lightblue;
+    background: #659DBD;
     min-width: 10%;
   }
   .ul {
@@ -117,7 +121,7 @@
   }
   .button {
     height:1%;
-    background-color: lightblue ;
+    background-color: #659DBD ;
     padding:12px;
     border-radius:5px;
     font-weight:bold;

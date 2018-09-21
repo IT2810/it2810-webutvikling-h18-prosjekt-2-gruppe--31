@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 class AudioPlayer extends React.Component {
-    constructor(props) {
-      super(props);
-    }
       
-    render() {
+  render() {
     return (
-        <div className='AudioPlayer'>
+      <div className='AudioPlayer'>
         <audio
-            src={ this.props.src }
-            controls={ true }/>
-          </div>
-        );
-      }
-    }
+          src={ this.props.src }
+          controls={ true }/>          
+      </div>
+    );
+  }
+}
 export default AudioPlayer;
