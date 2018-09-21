@@ -19,16 +19,16 @@ class ImageSlider extends React.Component {
   }
 
   _handleClick(e){
-    var imagePath = e.target.src.split('http://localhost:3000/')[1];
-    if (imagePath ===  this.props.images[0].split('http://localhost:3000/')[1]){
+    var imagePath = e.target.src.split('http://it2810-31.idi.ntnu.no/prosjekt2/')[1];
+    if (imagePath ===  this.props.images[0].split('http://it2810-31.idi.ntnu.no/prosjekt2/')[1]){
       this.setState({firstImg : e.target.src, src : this.props.audioArray[0]});
       this.handleIndexChange(1);
     }
-    else if (imagePath ===  this.props.images[1].split('http://localhost:3000/')[1]){
+    else if (imagePath ===  this.props.images[1].split('http://it2810-31.idi.ntnu.no/prosjekt2/')[1]){
       this.setState({firstImg : e.target.src, src : this.props.audioArray[1]});
       this.handleIndexChange(2);
     }
-    else if (imagePath ===  this.props.images[2].split('http://localhost:3000/')[1]){
+    else if (imagePath ===  this.props.images[2].split('http://it2810-31.idi.ntnu.no/prosjekt2/')[1]){
       this.setState({firstImg : e.target.src, src : this.props.audioArray[2]});
       this.handleIndexChange(3);
     }
