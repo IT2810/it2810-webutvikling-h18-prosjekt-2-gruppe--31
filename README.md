@@ -14,8 +14,12 @@ Returns the slideshow, including audiplayer and the index of selected picture (j
 Contains two classes, ImageSlider and ImageSlideshow
 
 Words.js:
+Contains the functionality to show the right text. Has input category and index and finds the right texts for the category. Then sets the right state for title, author and content. 
 
-Dropdownbutton.js: Contains the code for the dropdownbuttons. Takes input from App.js and sets the category for the button. OnClick updates the canvas and sets the appropriate pictures.
+Dropdownbutton.js: 
+Contains the code for the dropdownbuttons. Takes input from App.js and sets the category for the button. OnClick updates the canvas and sets the appropriate pictures, texs and sound.
+
+Documentation
 
 Image sources:
 Flaticon
@@ -23,12 +27,10 @@ The Craft Chop
 svg images
 
 Audio sources:
-
-
+soundbible.com
+mfiles.co.uk
 
 Text sources:
-
-
 
 
 Dependencies
@@ -39,7 +41,7 @@ AJAX
 Built with
 node.js
 
-Contributed to by
+## Contributing
 Thea Tokstad
 Katrine Lie Holm
 Jack Syvertsen
