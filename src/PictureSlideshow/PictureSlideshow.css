@@ -22,11 +22,12 @@
 	
 .AudioPlayer {
 	position: center;
-	height: 25px;
-	border-radius: 4px;
-	margin-left: 18%;
-	margin-right: 18%;
+	height: 10px;
+	border-radius: 2px;
+	margin-left: 11%;
+	margin-right: 11%;
 	}
 .AudioPlayer audio {
+	position: center;
 	width: 100%;
 	}

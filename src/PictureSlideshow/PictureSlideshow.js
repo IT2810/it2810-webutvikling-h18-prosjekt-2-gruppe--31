@@ -67,8 +67,10 @@ class ImageSlider extends React.Component {
             )}
           )}
         </div>
-        <div className="AudioPlayer">
-          {audio}
+        <div className="col-12">
+          <div className="AudioPlayer">
+            {audio}
+          </div>
         </div>
       </div>
     )

@@ -69,15 +69,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" maxheight="80%">
-        <div className="col-12" maxheight="80%">
-          <div className="col-12 dropdown" height="25px">
+      <div className="App">
+        <div className="col-12full">
+          <div className="col-12dropdown">
             <DropdownButton title = { this.state.picture } whatDropdown = "Picture" categories={['Human', 'Nature','Animal']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.sound } whatDropdown = "Sound" categories={['Music', 'Nature','Noise']} updateCanvas={ this.updateCanvas }/>
             <DropdownButton title = { this.state.text } whatDropdown = "Text" categories={['Poem', 'Humour','Wisdom']} updateCanvas={ this.updateCanvas }/>
           </div>
+          <div className="col-12picture">
           <PictureSlideshow ref ={this.childRerender} all_p = {this.state.all_pictures} all_a = {this.state.all_audio} getIndex = {this.handleIndex.bind(this)}/>
-          <div className="col-12" >
+          </div>
+          <div className="col-12text" >
             <Words ref={this.child} cat={this.state.text} index={this.state.index}/>
           </div>
         </div>
