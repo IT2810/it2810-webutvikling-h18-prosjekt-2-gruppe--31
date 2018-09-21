@@ -36,8 +36,11 @@ The pictures are SVG files, the audio format is MP3s and the texts are saved as 
 #### REACT
 Our project is made using REACT, a JavaScript library for building user interfaces. REACT components are reusable and is well adapted for layering. It also uses the Virtual DOM, meaning it only renders specific pieces of DOM when a change has occurred. There is an in-memory data structure cache that allowed this selective rendering. The selective rendering makes the app faster as well. The components themselves are made using ES6 and JSX described above. JSX is JavaScript that incorporates HTML so that the REACT subcomponents can be rendered with the desired HTML-tags.
 
-#### AXAJ
-We have chosen to use the .fetch() method to download the SVG and JSON files. It is a simple API that makes it easy to set the state of a component according to the element that had been fetched. After the file has been loaded we use the .then() method to change the state of a component. The audio is handled using the HTML audio tag.
+#### AJAX
+Ajax is short for short for "Asynchronous JavaScript And XML” and using it means a web page can be updated without reloading. Furthermore, it allows for data to be requested and received form a server, after the page has loaded. As well as send data to a server in the background. It is uses a combination of browser XMLHttpRequest object so that is can request data from a web server on the one side, and JavaScript plus HTML DOM for display or use of the data. 
+
+Despite its name, AJAX applications commonly used to transport data such as JSON text or even plain text. We have chosen to use the .fetch() method to download the SVG and JSON files. It is a simple API that makes it easy to set the state of a component according to the element that had been fetched. After the file has been loaded we use the .then() method to change the state of a component. The audio is handled using the HTML audio tag.
+
 
 ### Responsive Web Design
 The exhibition display default for desktop shows the soundbar and the pictures to the left, and the text to the right. On mobile the text will move to be below the soundbar, meaning one column of content rather than two. This behavior will also show is if the window becomes narrow enough.
