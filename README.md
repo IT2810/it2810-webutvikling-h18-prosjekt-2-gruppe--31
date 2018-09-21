@@ -33,13 +33,13 @@ The pictures are SVG files, the audio format is MP3s and the texts are saved as 
 
 ###Technologies
 
-####REACT
+#### REACT
 Our project is made using REACT, a JavaScript library for building user interfaces. We have used ES6 and made the components described above.
 
-####AXAJ
+#### AXAJ
 We have chosen to use the .fetch() method to download the SVG and JSON files. It is a simple API that makes it easy to set the state of a component according to the element that had been fetched. After the file has been loaded we use the .then() method to change the state of a component. The audio is handled using the HTML audio tag.
 
-###Responsive Web Design
+### Responsive Web Design
 The exhibition display default for desktop shows the soundbar and the pictures to the left, and the text to the right. On mobile the text will move to be below the soundbar, meaning one column of content rather than two. This behavior will also show is if the window becomes narrow enough.
 Along with the placement of elements, the text size of the text and dropdown buttons changes. If the window becomes sufficiently small enough, the small triangles will disappear to make more space for the button text. 
 
