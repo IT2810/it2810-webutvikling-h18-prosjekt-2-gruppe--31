@@ -1,5 +1,4 @@
-import ReactDOM, { render } from 'react-dom';
-import React, { Component } from 'react';
+import React from 'react';
 import './App/App.css';
 import AudioPlayer from './AudioPlayer.js';
 
@@ -11,7 +10,6 @@ class ImageSlider extends React.Component {
     this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : 0};
     this.handleIndexChange.bind(this);
   }
-
 
   handleIndexChange(e){
     this.props.handleIndexChange(e);
