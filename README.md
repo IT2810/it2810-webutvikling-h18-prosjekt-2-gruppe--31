@@ -22,8 +22,28 @@ Contains the code for the dropdownbuttons. Takes input from App.js and sets the 
 
 ## Documentation
 
-### AJAX
-Vi har valgt å bruke fetch()-metoden til å laste ned bildene og JSON-tekstene. Det er en enkel API som gjør det lett å endre state'en til det vi har fetched, for så å bruke then() til å gjøre noe med resultatet. Den henter i tillegg enkelt flere elementer. 
+###Contents and functionality 
+In order to choose the different categories have we chosen to utilize a dropdown button solution. This allows the user to combine different categories of sounds, pictures and texts. To get a new artwork without changing the categories, the users can pick a new photo from the thumbnail. This picture will then be displayed, and the app will set the corresponding sound and text while keeping them within their respective categories. 
+
+This gives an intuitive way to switch between the different artworks and is a familiar way to interact with digital collections of photos. 
+The start page is a plain white page, it has some plain lines as placeholders for the picture, the thumbnails, an empty sound player and default content for the text. As the used picks categories, content will be loaded. There are three different categories for each media type, and four different pieces within each of the categories, and the user can play around, matching any category of one media type with any category of the other media types. 
+
+The pictures are SVG files, the audio format is MP3s and the texts are saved as JSON, text and pictures are saved in `public/SVG` and `public/words`.
+
+
+###Technologies
+
+####REACT
+Our project is made using REACT, a JavaScript library for building user interfaces. We have used ES6 and made the components described above.
+
+####AXAJ
+We have chosen to use the .fetch() method to download the SVG and JSON files. It is a simple API that makes it easy to set the state of a component according to the element that had been fetched. After the file has been loaded we use the .then() method to change the state of a component. The audio is handled using the HTML audio tag.
+
+###Responsive Web Design
+The exhibition display default for desktop shows the soundbar and the pictures to the left, and the text to the right. On mobile the text will move to be below the soundbar, meaning one column of content rather than two. This behavior will also show is if the window becomes narrow enough.
+Along with the placement of elements, the text size of the text and dropdown buttons changes. If the window becomes sufficiently small enough, the small triangles will disappear to make more space for the button text. 
+
+
 
 ### Testing
 
@@ -38,7 +58,10 @@ Vi har valgt å bruke fetch()-metoden til å laste ned bildene og JSON-tekstene.
 * [mfiles](https://www.mfiles.co.uk/)
 
 ### Text sources:
-
+* [English for students](http://www.english-for-students.com/Short-Moral-Stories-for-Kids.html)
+* [Poets.org](https://www.poets.org/poetsorg/poems?field_poem_themes_tid=1456)
+* Twitter
+* Reddit
 
 ## Dependencies
 * React
