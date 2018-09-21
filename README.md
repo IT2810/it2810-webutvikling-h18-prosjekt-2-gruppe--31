@@ -29,13 +29,13 @@ Vi har valgt å bruke fetch()-metoden til å laste ned bildene og JSON-tekstene.
 
 ## Sources 
 ### Image sources:
-* [Flaticon] (https://www.flaticon.com/)
-* [The Craft Chop] (http://thecraftchop.com/)
+* [Flaticon](https://www.flaticon.com/)
+* [The Craft Chop](http://thecraftchop.com/)
 
 
 ### Audio sources:
-* [Soundbible] (https://soundbible.com/)
-* [mfiles] (https://www.mfiles.co.uk/)
+* [Soundbible](https://soundbible.com/)
+* [mfiles](https://www.mfiles.co.uk/)
 
 ### Text sources:
 
