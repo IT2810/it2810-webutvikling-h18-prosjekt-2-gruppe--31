@@ -1,5 +1,5 @@
 /* For mobile-version */
-[class*="dropdown"] {
+[class="dropdown"] {
   position: relative;
   display: inline-block;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -7,7 +7,7 @@
   background: #659DBD;
   min-width: 24%;
 }
-[class*="ul"] {
+[class="ul"] {
   list-style-type: none;
   margin: 0;
   padding: 0;
