@@ -27,6 +27,10 @@ class App extends Component {
     this.updateCanvas = this.updateCanvas.bind(this);
   }
   
+  /* Input title which is the button type, either picture, sound or text
+   * Input category is the different category under Picture, Sound or Text
+   * Fetches the pictures and append them to the all_pictures and passes it to PictureSlideshow
+  */
   updateCanvas(title, category) {
     if (title === "Picture") {
       let pictures = this.pictures_db[category]
@@ -35,17 +39,13 @@ class App extends Component {
         fetch(pictures[1]),
         fetch(pictures[2]),
         fetch(pictures[3]),
-      ])
-        .then( ([p1,p2,p3,p4]) => {
-          
+      ]).then( ([p1,p2,p3,p4]) => {
           this.setState({
             picture: category,
             all_pictures: [p1.url, p2.url, p3.url, p4.url]
           });
           this.childRerender.current.childRerender(p1.url);
-          
         });
-        
     } else if ( title === "Sound") {
       let audio = this.audio_db[category]
       this.setState({
@@ -58,7 +58,6 @@ class App extends Component {
         text: category
       });
       this.child.current.updateWords(category, this.state.index);
-      
     }
   }
 
@@ -67,9 +66,7 @@ class App extends Component {
     this.child.current.updateWords(this.state.text, index);
   }
 
-  
   render() {
-    
     return (
       <div className="App" maxheight="80%">
         <div className="col-12" maxheight="80%">
@@ -80,7 +77,7 @@ class App extends Component {
           </div>
           <PictureSlideshow ref ={this.childRerender} all_p = {this.state.all_pictures} all_a = {this.state.all_audio} getIndex = {this.handleIndex.bind(this)}/>
           <div className="col-12" >
-           <Words ref={this.child} cat={this.state.text} index={this.state.index}/>
+            <Words ref={this.child} cat={this.state.text} index={this.state.index}/>
           </div>
         </div>
       </div>
