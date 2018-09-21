@@ -54,7 +54,7 @@
 /* For desktop-version */
 @media only screen and (min-width: 924px) {
     .wordContainer{
-        margin-top: 5%; 
+        margin-top: 0%; 
     }
     .wordTitle{
         text-align: center;
