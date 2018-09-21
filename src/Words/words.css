@@ -12,7 +12,7 @@
 [class*="wordAuthor"] {
     text-align: center;
     font-style: italic;
-    color: #FBEEC1;
+    color: #D6C48F;
     font-size:3.7vw;
     margin-top: 1%;
 }
@@ -42,7 +42,7 @@
     }
     .wordAuthor{
         font-style: italic;
-        color: #FBEEC1;
+        color: #D6C48F;
         font-size:2.1vw;
     }
     .wordContent {
@@ -71,7 +71,7 @@
     }
     .wordAuthor{
         font-style: italic;
-        color: #FBEEC1;
+        color: #D6C48F;
         font-size:1.4vw;
     }
     .wordContent {
