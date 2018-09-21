@@ -50,7 +50,7 @@ Along with the placement of elements, the text size of the text and dropdown but
 
 ### Testing
 
-The app has been tested in Google Chrome and Mozilla Firefox for desktop.  For the mobile units we tested in Safari for iPhone7, as well as Chrome for Samsung S8. The tablet version was also tested in Safari, using an iPad. The behavior and layout remains consistent across browsers and devices. 
+The app has been tested in Google Chrome and Mozilla Firefox for desktop.  For the mobile units we tested in Safari for iPhone7, as well as Chrome for Samsung S8. We have also had some persons test the website to see if they found any bugs. The behavior and layout remains consistent across browsers and devices. 
 
 ## Sources 
 ### Image sources:
