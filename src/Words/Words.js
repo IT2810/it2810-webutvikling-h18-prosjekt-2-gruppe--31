@@ -7,9 +7,9 @@ class Words extends Component {
     super(props);
 
     this.words_db = {
-      'Poem': ['/words/Poem/1.json', '/words/Poem/2.json', '/words/Poem/3.json', '/words/Poem/4.json'],
-      'Humour': ['/words/Humour/1.json', '/words/Humour/2.json', '/words/Humour/3.json', '/words/Humour/4.json'],
-      'Wisdom': ['/words/Wisdom/1.json', '/words/Wisdom/2.json', '/words/Wisdom/3.json', '/words/Wisdom/4.json']
+      'Poem': ['./words/Poem/1.json', './words/Poem/2.json', './words/Poem/3.json', './words/Poem/4.json'],
+      'Humour': ['./words/Humour/1.json', './words/Humour/2.json', './words/Humour/3.json', './words/Humour/4.json'],
+      'Wisdom': ['./words/Wisdom/1.json', './words/Wisdom/2.json', './words/Wisdom/3.json', './words/Wisdom/4.json']
     };
 
     this.state = {
