@@ -13,14 +13,17 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+
     this.pictures_db = { Animal: ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'],
       Human: ['../SVG/Human/humans.svg', '../SVG/Human/yoga.svg', '../SVG/Human/standing_human.svg', '../SVG/Human/human-body-size-icons.svg'], 
       Nature: ['../SVG/Nature/water.svg', '../SVG/Nature/tree.svg', '../SVG/Nature/sun.svg', '../SVG/Nature/forest.svg'] 
     }
+
     this.audio_db = { Noise:['https://soundbible.com/grab.php?id=2219&type=mp3', 'https://soundbible.com/grab.php?id=2214&type=mp3', 'https://soundbible.com/grab.php?id=2114&type=mp3', 'https://soundbible.com/grab.php?id=640&type=mp3'],
       Nature: ['http://soundbible.com/grab.php?id=2033&type=mp3', 'http://soundbible.com/grab.php?id=2032&type=mp3', 'https://soundbible.com/grab.php?id=2217&type=mp3', 'http://soundbible.com/grab.php?id=2012&type=mp3' ],
       Music: ['https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3'] 
     }
+    
     this.child = React.createRef();
     this.childRerender = React.createRef();
     this.state = { picture: 'Picture', sound: 'Sound', text: 'Text', all_pictures: picArray, all_audio: audioArr, index: 0 };

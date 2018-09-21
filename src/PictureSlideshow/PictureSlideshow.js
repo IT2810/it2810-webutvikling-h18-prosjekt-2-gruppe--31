@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App/App.css';
-import AudioPlayer from '../AudioPlayer';
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 import './PictureSlideshow.css'
 
 class ImageSlider extends React.Component {
@@ -35,7 +35,6 @@ class ImageSlider extends React.Component {
     else{
       this.setState({firstImg : e.target.src, src : this.props.audioArray[3]});
       this.handleIndexChange(0);
-
     }
   }
 

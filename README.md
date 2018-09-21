@@ -1,20 +1,22 @@
 # " it2810-webutvikling-h18-prosjekt-2-gruppe--31" 
-Made an interactive exhibition with responsive web design
+In this project we made an interactive exhibition with responsive web design. The exhibition features several different combinations of pictures, audio and text. By using the interactive features of the website, the user is able to create his or her own art exhibition.
+
+## Description of the app structure
+
+We chose to divide the app into a couple of different react components. When creating the components, we tried to make each component as general as possible. We organized each component, with the corresponding css, in its own folder. Below follows a description of each of the components.
 
 `App.js`:
-Main class
-Renders a dropdownmenu with 3 buttons which dynamically updates the render with new pictures, sound or text
+As benefits a react app, the App component acts as a placeholder for the rest of the app. In here, we render the dropdown, audio, text and pictures. The app component also has logic for connecting the dropdown menu and exhbition. Also, the state of the system is found in th App. If we were to create a large, more advanced app, we would of course not include all the logic in App. However, as this app is rather small, we did so here.
 
 
 `Audioplayer.js`:
-Contains a simple react wrapper for an HTML component, input is a source path.
+Audioplayer.js simply contains a react wrapper for an HTML component, input is a source path.
 
 `PictureSlideShow.js`:
-Contains the entire pictureslideshow functionality, and audioplayer. input is an array of pictures.
-Returns the slideshow, including audiplayer and the index of selected picture (just a count for now)
-Contains two classes, ImageSlider and ImageSlideshow
+Contains the component for the picture slideshow in the exhibition. It contains two components, ImageSlider and ImageSlideshow. The ImageSlider class contains the rendering of the exhbition.
 
 `Words.js`:
+Again 
 Contains the functionality to show the right text. Has input category and index and finds the right texts for the category. Then sets the right state for title, author and content. 
 
 `Dropdownbutton.js`: 
@@ -71,7 +73,6 @@ The app has been tested in Google Chrome and Mozilla Firefox for desktop.  For t
 ## Dependencies
 * React
 * Node.js
-* AJAX
 
 ## Built with
 node.js
