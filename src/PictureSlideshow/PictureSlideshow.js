@@ -8,7 +8,7 @@ class ImageSlider extends React.Component {
   constructor(props){
     super(props);
     this._handleClick = this._handleClick.bind(this);
-    this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', count : 0};
+    this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', count : 0};
     this.handleIndexChange.bind(this);
     this.Rerender.bind(this);
     this.UpdateAudio.bind(this);
