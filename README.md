@@ -1,56 +1,58 @@
 # " it2810-webutvikling-h18-prosjekt-2-gruppe--31" 
-Made an interactive exhibition with responsive web design
+In this project we made an interactive exhibition with responsive web design. The exhibition features several different combinations of pictures, audio and text. By using the interactive features of the website, the user is able to create his or her own art exhibition.
+
+## Description of the app structure
+We chose to divide the app into a couple of different react components. When creating the components, we tried to make each component as general as possible. We organized each component, with the corresponding css, in its own folder. Below follows a description of each of the components.
 
 `App.js`:
-Main class
-Renders a dropdownmenu with 3 buttons which dynamically updates the render with new pictures, sound or text
-
+As benefits a react app, the App component acts as a placeholder for the rest of the app. In here, we render the dropdown, audio, text and pictures. The app component also has logic for connecting the dropdown menu and exhbition. Also, the state of the system is found in th App. If we were to create a large, more advanced app, we would of course not include all the logic in App. However, as this app is rather small, we did so here. The App.js also contains lists that acts as the source for the pictures/text/audio in the exhibition.
 
 `Audioplayer.js`:
-Contains a simple react wrapper for an HTML component, input is a source path.
+Audioplayer.js simply contains a react wrapper for an HTML component, input is a source path.
 
 `PictureSlideShow.js`:
-Contains the entire pictureslideshow functionality, and audioplayer. input is an array of pictures.
-Returns the slideshow, including audiplayer and the index of selected picture (just a count for now)
-Contains two classes, ImageSlider and ImageSlideshow
+Contains the component for the picture slideshow in the exhibition. It contains two components, ImageSlider and ImageSlideshow. The ImageSlider class contains the rendering of the exhbition, while the other class is used as a component for rendering the slideshow with the four different picture options.
 
 `Words.js`:
-Contains the functionality to show the right text. Has input category and index and finds the right texts for the category. Then sets the right state for title, author and content. 
+This component acts mainly as a placeholder for the text in the exhbitions. It has a category and index as input, and it find the right text given the category. It then sets the right state for the title, author and content.
 
 `Dropdownbutton.js`: 
-Contains the code for the dropdownbuttons. Takes input from App.js and sets the category for the button. OnClick updates the canvas and sets the appropriate pictures, texs and sound.
+The dropdownbutton takes input from App.js, and sets the category for the button accordingly. The onClick function, triggered when something in the dropdown is press, updates the canvas with the appropriate pictures, text and audio.
 
 ## Documentation
 
-### Contents and functionality 
-In order to choose the different categories have we chosen to utilize a dropdown button solution. This allows the user to combine different categories of sounds, pictures and texts. To get a new artwork without changing the categories, the users can pick a new photo from the thumbnail. This picture will then be displayed, and the app will set the corresponding sound and text while keeping them within their respective categories. 
+### Contents and functionality
+We chose to used dropdown buttons for selecting the different input for the exhibition. The dropdown button was chosen because we thought it provided the simplest and most good looking way of changing the input for the slideshow. We added a small slideshow under the "featured" picture in order to make it easy for the user to change between the different pictures in the category. The app will select the text and audio accordingly.
 
-This gives an intuitive way to switch between the different artworks and is a familiar way to interact with digital collections of photos. 
-The start page is a plain white page, it has some plain lines as placeholders for the picture, the thumbnails, an empty sound player and default content for the text. As the used picks categories, content will be loaded. There are three different categories for each media type, and four different pieces within each of the categories, and the user can play around, matching any category of one media type with any category of the other media types. 
+All this gives an intuitive way of switch between the different artworks, and should be familiar to people used to interacting with digital photo albums.
 
-The pictures are SVG files, the audio format is MP3s and the texts are saved as JSON, text and pictures are saved in `public/SVG` and `public/words`.
+We chose to start the page with a blank page. This should encourage the user to select categories from the dropdown on the top of the page. The user should quickly realize how to combine different text, audio and pictures. Each picture, audio and text category has four different entries.
+
+The pictures are SVG files, the audio format is MP3s and the texts are saved as JSON, text and pictures are saved in `public/SVG` and `public/words`, while audio is streamed from the web.
 
 
 ### Technologies
 
 #### REACT
-Our project is made using REACT, a JavaScript library for building user interfaces. REACT components are reusable and is well adapted for layering. It also uses the Virtual DOM, meaning it only renders specific pieces of DOM when a change has occurred. There is an in-memory data structure cache that allowed this selective rendering. The selective rendering makes the app faster as well. The components themselves are made using ES6 and JSX described above. JSX is JavaScript that incorporates HTML so that the REACT subcomponents can be rendered with the desired HTML-tags.
+The project is made using REACT, a JavaScript library for building responsive and modern user interfaces. REACT components are reusable and is well adapted for layering and SPA applications. It also uses the Virtual DOM, meaning it only renders specific pieces of DOM when a change has occurred. This was perfect for our virutal art exhibition. There is an in-memory data structure cache that allowed this selective rendering. The selective rendering makes the app faster as well. The components themselves are made using ES6 and JSX. JSX is JavaScript that incorporates HTML so that the REACT subcomponents can be rendered with the desired HTML-tags.
+
+In react, we found the state and lifecycle functionality particulary useful. We used a state, localized in the App.js, to maintain a consistent storage of the active exhibiton. Using the state-management pattern, it was easy for the various components to change the state, and see the changes reflect through the app. The state acted as a connection between the dropdown and the active elements in the exhibition.
 
 #### AJAX
-Ajax is short for short for "Asynchronous JavaScript And XML” and using it means a web page can be updated without reloading. Furthermore, it allows for data to be requested and received form a server, after the page has loaded. As well as send data to a server in the background. It is uses a combination of browser XMLHttpRequest object so that is can request data from a web server on the one side, and JavaScript plus HTML DOM for display or use of the data. 
+Ajax is short for short for "Asynchronous JavaScript And XML” and using it means a web page can be updated without reloading. Basically, it allows for data to be requested and received form a server, after the page has loaded. This was perfect for us, as we wanted to only load the required data when wanted. Ajax is also used to send data to a server, again without having to refresh the page. It is uses a combination of browser XMLHttpRequest object so that is can request data from a web server on the one side, and JavaScript plus HTML DOM for display or use of the data. 
 
-Despite its name, AJAX applications commonly used to transport data such as JSON text or even plain text. We have chosen to use the .fetch() method to download the SVG and JSON files. It is a simple API that makes it easy to set the state of a component according to the element that had been fetched. After the file has been loaded we use the .then() method to change the state of a component. The audio is handled using the HTML audio tag.
+Despite its name, AJAX applications commonly used to transport data such as JSON text or even plain text. We used the fetch-api to "implement" ajax, and to fetch the requied text and pictures. It is a simple and powerful api, and it makes it easy to add callback functions for setting the state of the application / adding data after we are sure the data is properly fetched. The callback is implemented using the .then functions in javascript. We could have included error handling in the fetch .then callbacks, but we chose not to. The fetch api excellently suited our task of fetching text and pictures, as it was easy to use and get started with. The audio is handled using the HTML audio tag.
 
 
 ### Responsive Web Design
-The exhibition display default for desktop shows the soundbar and the pictures to the left, and the text to the right. On mobile the text will move to be below the soundbar, meaning one column of content rather than two. This behavior will also show is if the window becomes narrow enough.
+The exhibition display default for desktop shows the soundbar and the pictures to the left, and the text to the right. On mobile the text will move to be below the soundbar, meaning one column of content rather than two. This behavior will also show is if the window becomes narrow enough. All this was implemented using css functionally, similar to the first project in the class.
 Along with the placement of elements, the text size of the text and dropdown buttons changes. If the window becomes sufficiently small enough, the small triangles will disappear to make more space for the button text. 
 
 
 
 ### Testing
 
-The app has been tested in Google Chrome and Mozilla Firefox for desktop.  For the mobile units we tested in Safari for iPhone5/6/7/8, as well as Chrome for Samsung S8. The tablet version was also tested in Safari, using an iPad. The behavior and layout remains consistent across browsers and devices. 
+The app has been tested in Google Chrome and Mozilla Firefox for desktop.  For the mobile units we tested in Safari for iPhone7, as well as Chrome for Samsung S8. We have also had some persons test the website to see if they found any bugs. The behavior and layout remains consistent across browsers and devices. 
 
 ## Sources 
 ### Image sources:
@@ -71,7 +73,6 @@ The app has been tested in Google Chrome and Mozilla Firefox for desktop.  For t
 ## Dependencies
 * React
 * Node.js
-* AJAX
 
 ## Built with
 node.js
