@@ -1,4 +1,5 @@
 # " it2810-webutvikling-h18-prosjekt-2-gruppe--31" 
+Made an interactive exhibition with responsive web design
 
 App.js:
 Main class
