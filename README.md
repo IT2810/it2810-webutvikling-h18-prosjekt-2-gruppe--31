@@ -23,7 +23,7 @@ Contains the code for the dropdownbuttons. Takes input from App.js and sets the 
 ## Documentation
 
 ### AJAX
-Vi har valgt å bruke fetch()-metoden til å laste ned bildene og JSON-tekstene. Det er en enkel metode for å hente bildene for så og oppdatere state'en av resultatet. 
+Vi har valgt å bruke fetch()-metoden til å laste ned bildene og JSON-tekstene. Det er en enkel API som gjør det lett å endre state'en til det vi har fetched, for så å bruke then() til å gjøre noe med resultatet. Den henter i tillegg enkelt flere elementer. 
 
 ### Testing
 
