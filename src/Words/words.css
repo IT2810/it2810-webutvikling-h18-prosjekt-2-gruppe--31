@@ -1,6 +1,6 @@
 /* For mobile-version */
 [class*="wordContainer"] {
-    margin-top: 25%;
+    margin-top: 17%;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 } 
 [class*="wordTitle"] {
@@ -14,12 +14,14 @@
     font-style: italic;
     color: #FBEEC1;
     font-size:3.7vw;
+    margin-top: 1%;
 }
 [class*="wordContent"] {
     padding: 0% 20%;
     white-space: normal;
     text-align: left;
     font-size:4.5vw;
+    margin-top: 1%;
     color: #DAAD86
 }
 /* end mobile */
@@ -29,7 +31,7 @@
 /* For tablets */
 @media only screen and (min-width: 600px) {
     .wordContainer{
-        margin-top: 12%;
+        margin-top: 10%;
         font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     } 
     .wordTitle{
