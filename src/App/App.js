@@ -6,8 +6,8 @@ import PictureSlideshow from '../PictureSlideshow/PictureSlideshow';
 import Words from '../Words/Words';
 
 
-const picArray = ['../SVG/Animal/elg.svg', '../SVG/Animal/falk.svg', '../SVG/Animal/salamander.svg', '../SVG/Animal/sjiraff.svg'];
-const audioArr = ['https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', 'https://www.mfiles.co.uk/mp3-downloads/rocking-carol-guitar-glenn-jarrett.mp3', 'https://www.mfiles.co.uk/mp3-downloads/francisco-tarrega-lagrima.mp3', 'https://www.mfiles.co.uk/mp3-downloads/chopin-tarrega-nocturne-op9-no2-guitar.mp3'];
+const picArray = ['', '', '', ''];
+const audioArr = ['', '', '', ''];
 
 class App extends Component {
 
@@ -44,7 +44,8 @@ class App extends Component {
             picture: category,
             all_pictures: [p1.url, p2.url, p3.url, p4.url]
           });
-          this.childRerender.current.childRerender(p1.url);
+          this.childRerender.current.childRerender([p1.url, p2.url, p3.url, p4.url]);
+          
         });
     } else if ( title === "Sound") {
       let audio = this.audio_db[category]

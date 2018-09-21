@@ -8,7 +8,7 @@ class ImageSlider extends React.Component {
   constructor(props){
     super(props);
     this._handleClick = this._handleClick.bind(this);
-    this.state = {firstImg : '', src : 'https://www.mfiles.co.uk/mp3-downloads/bach-bourree-in-e-minor-guitar.mp3', count : 0};
+    this.state = {firstImg : '', src : '', count : 0};
     this.handleIndexChange.bind(this);
     this.Rerender.bind(this);
     this.UpdateAudio.bind(this);
@@ -20,15 +20,15 @@ class ImageSlider extends React.Component {
 
   _handleClick(e){
     var imagePath = e.target.src.split('http://localhost:3000/')[1];
-    if (imagePath ===  this.props.images[0].split('../')[1]){
+    if (imagePath ===  this.props.images[0].split('http://localhost:3000/')[1]){
       this.setState({firstImg : e.target.src, src : this.props.audioArray[0]});
       this.handleIndexChange(1);
     }
-    else if (imagePath ===  this.props.images[1].split('../')[1]){
+    else if (imagePath ===  this.props.images[1].split('http://localhost:3000/')[1]){
       this.setState({firstImg : e.target.src, src : this.props.audioArray[1]});
       this.handleIndexChange(2);
     }
-    else if (imagePath ===  this.props.images[2].split('../')[1]){
+    else if (imagePath ===  this.props.images[2].split('http://localhost:3000/')[1]){
       this.setState({firstImg : e.target.src, src : this.props.audioArray[2]});
       this.handleIndexChange(3);
     }
@@ -40,7 +40,7 @@ class ImageSlider extends React.Component {
   }
 
   Rerender(image){
-    this.setState({firstImg: image});
+    this.setState({firstImg: image[0]});
   }
   UpdateAudio(audio){
     this.setState({src: audio});
