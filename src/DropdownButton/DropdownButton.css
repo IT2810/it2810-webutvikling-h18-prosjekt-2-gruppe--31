@@ -2,9 +2,9 @@
 [class*="dropdown"] {
   position: relative;
   display: inline-block;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 2.3vmin;
-  background: lightblue;
+  background: #659DBD;
   min-width: 24%;
 }
 [class*="ul"] {
@@ -26,7 +26,7 @@
 }
 [class*="button"] {
   height:1%;
-  background-color: lightblue ;
+  background-color: #659DBD ;
   padding:12px;
   border-radius:5px;
   font-weight:bold;
@@ -42,9 +42,9 @@
   .dropdown {
     position: relative;
     display: inline-block;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 2.3vmin;
-    background: lightblue;
+    background: #659DBD;
     min-width: 24%;
   }
   .ul {
@@ -69,7 +69,7 @@
   }
   .button {
     height:1%;
-    background-color: lightblue ;
+    background-color: #659DBD ;
     padding:12px;
     border-radius:5px;
     font-weight:bold;
@@ -93,9 +93,9 @@
   .dropdown {
     position: relative;
     display: inline-block;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 2.3vmin;
-    background: lightblue;
+    background: #659DBD;
     min-width: 10%;
   }
   .ul {
@@ -121,7 +121,7 @@
   }
   .button {
     height:1%;
-    background-color: lightblue ;
+    background-color: #659DBD ;
     padding:12px;
     border-radius:5px;
     font-weight:bold;
