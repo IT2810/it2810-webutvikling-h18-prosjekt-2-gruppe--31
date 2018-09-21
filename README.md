@@ -36,6 +36,8 @@ The pictures are SVG files, the audio format is MP3s and the texts are saved as 
 #### REACT
 The project is made using REACT, a JavaScript library for building responsive and modern user interfaces. REACT components are reusable and is well adapted for layering and SPA applications. It also uses the Virtual DOM, meaning it only renders specific pieces of DOM when a change has occurred. This was perfect for our virutal art exhibition. There is an in-memory data structure cache that allowed this selective rendering. The selective rendering makes the app faster as well. The components themselves are made using ES6 and JSX. JSX is JavaScript that incorporates HTML so that the REACT subcomponents can be rendered with the desired HTML-tags.
 
+In react, we found the state and lifecycle functionality particulary useful. We used a state, localized in the App.js, to maintain a consistent storage of the active exhibiton. Using the state-management pattern, it was easy for the various components to change the state, and see the changes reflect through the app. The state acted as a connection between the dropdown and the active elements in the exhibition.
+
 #### AJAX
 Ajax is short for short for "Asynchronous JavaScript And XML” and using it means a web page can be updated without reloading. Basically, it allows for data to be requested and received form a server, after the page has loaded. This was perfect for us, as we wanted to only load the required data when wanted. Ajax is also used to send data to a server, again without having to refresh the page. It is uses a combination of browser XMLHttpRequest object so that is can request data from a web server on the one side, and JavaScript plus HTML DOM for display or use of the data. 
 
@@ -43,7 +45,7 @@ Despite its name, AJAX applications commonly used to transport data such as JSON
 
 
 ### Responsive Web Design
-The exhibition display default for desktop shows the soundbar and the pictures to the left, and the text to the right. On mobile the text will move to be below the soundbar, meaning one column of content rather than two. This behavior will also show is if the window becomes narrow enough.
+The exhibition display default for desktop shows the soundbar and the pictures to the left, and the text to the right. On mobile the text will move to be below the soundbar, meaning one column of content rather than two. This behavior will also show is if the window becomes narrow enough. All this was implemented using css functionally, similar to the first project in the class.
 Along with the placement of elements, the text size of the text and dropdown buttons changes. If the window becomes sufficiently small enough, the small triangles will disappear to make more space for the button text. 
 
 
